@@ -1,0 +1,19 @@
+# 🎨 Guia de Cores Oficiais da Agência
+
+Cole ou substitua os códigos de cores HEX abaixo com os códigos exatos da sua marca:
+
+---
+
+## 📋 Lista de Cores
+
+- **Fundo Escuro Principal:** `#14100E` (ou cole o seu HEX)
+- **Fundo Secundário / Cards:** `#181310` (ou cole o seu HEX)
+- **Cor de Destaque / Accent:** `#C28E68` (ou cole o seu HEX)
+- **Cor Secundária de Destaque:** `#8C5E3C` (ou cole o seu HEX)
+- **Texto Principal:** `#F5F0EB` (ou cole o seu HEX)
+- **Texto Secundário / Subtítulos:** `#A89B91` (ou cole o seu HEX)
+- **Bordas e Detalhes:** `#261F1B` e `#3D322C` (ou cole os seus HEX)
+
+---
+
+💡 *Assim que você colar suas cores e logos, posso atualizar todos os modelos de criativos automaticamente com a sua paleta exata!*

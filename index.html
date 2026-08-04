@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>Ousia Studio — Marketing Estratégico & Engenharia de Software</title>
+    <meta name="description" content="Do diagnóstico ao deploy, criamos marcas de alto impacto com engenharia de software sob medida." />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body class="bg-[#F5F0EB] text-[#1C1514] font-sans antialiased selection:bg-[#C28E68] selection:text-white relative w-full overflow-x-hidden min-h-dvh">
+
+    <!-- Grain Overlay -->
+    <svg class="grain-overlay" width="100%" height="100%">
+      <filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.12 0"/></filter>
+      <rect width="100%" height="100%" filter="url(#noise)"/>
+    </svg>
+
+    <!-- ============================== -->
+    <!-- FLOATING CAPSULE HEADER        -->
+    <!-- ============================== -->
+    <header class="site-header">
+      <div class="header-inner">
+        <!-- Left: Marketing -->
+        <div class="header-nav-left">
+          <a href="#marketing" class="header-pill-btn">Marketing</a>
+        </div>
+
+        <!-- Center: Logo -->
+        <a href="#" class="header-logo">
+          <img src="/criativos/assets/logos/logo-ousia-creme-transparente.png" alt="Ousia Studio" class="h-6 sm:h-7 w-auto object-contain" />
+        </a>
+
+        <!-- Right: Tecnologia -->
+        <div class="header-nav-right">
+          <a href="#tecnologia" class="header-pill-btn">Tecnologia</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================== -->
+    <!-- HERO SECTION                    -->
+    <!-- ============================== -->
+    <section class="hero-section relative z-10">
+      <!-- Glow Background -->
+      <div class="hero-glow"></div>
+
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-12 relative z-10">
+        <div class="hero-grid">
+
+          <!-- LEFT COLUMN: Text + CTAs + Stats -->
+          <div class="pt-8 lg:pt-16">
+            <!-- Badge -->
+            <div class="hero-badge">
+              <span class="hero-badge-dot"></span>
+              <span>Marketing & Tech Studio</span>
+            </div>
+
+            <!-- Title -->
+            <h1 class="hero-title">
+              Sua Equipe<br/>
+              de <span class="accent">Estratégia</span><br/>
+              Sob Demanda.
+            </h1>
+
+            <!-- Description -->
+            <p class="hero-desc">
+              Do diagnóstico ao deploy, integramos ao seu negócio para projetar, validar e lançar experiências de marca que seus clientes realmente amam.
+            </p>
+
+            <!-- Buttons -->
+            <div class="hero-buttons">
+              <a href="#contato" class="btn-primary">
+                <span>Iniciar Projeto</span>
+              </a>
+              <a href="#solucoes" class="btn-outline">
+                <span>Explorar Soluções</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: Floating Image + Side Stats -->
+          <div class="hero-right relative mt-8 lg:mt-0">
+            <!-- Side Stats -->
+            <div class="hero-side-stats">
+              <div class="side-stat-card">
+                <p class="side-stat-label">Projetos</p>
+                <p class="side-stat-value">230+</p>
+              </div>
+              <div class="side-stat-card">
+                <p class="side-stat-label">Marcas Atendidas</p>
+                <p class="side-stat-value">400+</p>
+              </div>
+            </div>
+
+            <!-- Business Showcase Card (No Code/Programming Jargon) -->
+            <div class="hero-floating-image">
+              <div class="bg-white border border-black/8 rounded-2xl p-6 sm:p-8 shadow-xl space-y-5">
+                <div class="flex items-center justify-between border-b border-black/5 pb-4">
+                  <div>
+                    <span class="text-[10px] font-outfit uppercase tracking-widest text-[#8A7E76]">Ousia Studio</span>
+                    <h3 class="font-outfit font-bold text-base text-[#1C1514]">Marketing &amp; Tecnologia</h3>
+                  </div>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#C28E68]"></span>
+                </div>
+                
+                <div class="space-y-2.5">
+                  <div class="p-3.5 bg-[#F5F0EB]/70 rounded-xl flex items-center justify-between">
+                    <span class="text-xs font-outfit font-semibold text-[#1C1514]">Atendimento &amp; Estratégia</span>
+                    <span class="text-xs font-outfit text-[#C28E68] font-bold">Balneário Camboriú, SC</span>
+                  </div>
+                  <div class="p-3.5 bg-[#F5F0EB]/70 rounded-xl flex items-center justify-between">
+                    <span class="text-xs font-outfit font-semibold text-[#1C1514]">Empresas Atendidas</span>
+                    <span class="text-xs font-outfit text-[#1C1514] font-bold">230+ Clientes</span>
+                  </div>
+                  <div class="p-3.5 bg-[#F5F0EB]/70 rounded-xl flex items-center justify-between">
+                    <span class="text-xs font-outfit font-semibold text-[#1C1514]">Foco do Trabalho</span>
+                    <span class="text-xs font-outfit text-[#C28E68] font-bold">Crescimento &amp; Vendas</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- ABOUT / MANIFESTO SECTION       -->
+    <!-- ============================== -->
+    <section class="about-section relative z-10">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-12 grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-12 items-start">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-[#C28E68]"></span>
+          <span class="text-xs font-outfit text-[#8A7E76] uppercase tracking-widest">Sobre Nós</span>
+        </div>
+        <p class="about-text">
+          Nós <span class="accent">projetamos</span> e implantamos <span class="bold">soluções de marketing</span> com pessoas no centro, garantindo que cada <span class="accent">sistema amplifique</span> experiências reais de marca.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- BENTO GRID (Cases + Stats)      -->
+    <!-- ============================== -->
+    <section id="cases" class="py-12 relative z-10">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-12">
+        <div class="bento-grid">
+
+          <!-- Card 1: Location (wide, no AI image) -->
+          <div class="bento-card bento-card-wide min-h-[280px] relative overflow-hidden">
+            <div class="absolute top-6 right-6 w-24 h-24 rounded-full bg-[#C28E68]/10 border border-[#C28E68]/20 flex items-center justify-center">
+              <svg width="36" height="36" fill="none" viewBox="0 0 24 24"><path stroke="#C28E68" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke="#C28E68" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
+            </div>
+            <div class="relative z-10">
+              <p class="bento-card-label">
+                <span class="inline-flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-400"></span> Disponível para projetos globais</span>
+              </p>
+              <h3 class="bento-card-title text-2xl mb-3">
+                Baseados em <span class="accent">Balneário Camboriú, SC</span>
+              </h3>
+              <a href="#contato" class="btn-primary text-sm mt-2">Iniciar Projeto</a>
+            </div>
+          </div>
+
+          <!-- Card 2: Stars + Big Number -->
+          <div class="bento-card flex flex-col justify-between min-h-[320px]">
+            <div>
+              <p class="bento-card-label">Confiança de 120+ clientes em 4 segmentos</p>
+              <div class="bento-stars">★★★★★</div>
+            </div>
+            <div>
+              <p class="bento-big-number">120+</p>
+            </div>
+          </div>
+
+          <!-- Card 3: Testimonial -->
+          <div class="bento-card bento-card-wide flex flex-col gap-5 min-h-[200px]">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-[#C28E68]/15 border-2 border-[#C28E68] flex items-center justify-center text-[#C28E68] font-outfit font-bold text-sm">GO</div>
+              <div>
+                <p class="font-outfit font-bold text-sm text-[#1C1514]">Gabriel Ousia</p>
+                <p class="text-[11px] text-[#8A7E76] font-outfit">Founder &amp; Managing Director</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-3xl font-serif text-[#C28E68] leading-none select-none mt-1">"</span>
+              <p class="testimonial-quote">
+                Um bom marketing é óbvio — porque o trabalho pesado é invisível. A Ousia existe para ser o alicerce técnico e estratégico que torna marcas inesquecíveis.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 4: Small stat card -->
+          <div class="bento-card flex flex-col justify-between min-h-[200px]">
+            <p class="bento-card-label">Tempo médio de entrega</p>
+            <div>
+              <p class="bento-big-number text-[#C28E68]">4<span class="text-2xl ml-1">sem</span></p>
+              <p class="text-xs text-[#8A7E76] mt-1">Da ideia ao deploy em produção</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- SERVICES SECTION                -->
+    <!-- ============================== -->
+    <section id="solucoes" class="services-section relative z-10">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-12">
+        
+        <!-- Header -->
+        <div class="mb-14 text-center max-w-2xl mx-auto">
+          <div class="services-badge mx-auto">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#C28E68]"></span>
+            <span>Estrutura de Serviços</span>
+          </div>
+          <h2 class="services-title">
+            Nossos Pilares de <span class="font-serif italic font-normal text-[#C28E68]">Marketing</span>
+          </h2>
+          <p class="services-desc mx-auto">
+            Estratégia de marca e aquisição paga estruturadas em fases interligadas para maximizar autoridade e receita.
+          </p>
+        </div>
+
+        <!-- MARKETING — SEÇÃO 1: BRANDING & PRESENÇA -->
+        <div id="marketing" class="scroll-mt-28 bg-white border border-black/8 rounded-3xl p-8 sm:p-10 space-y-6 shadow-sm relative">
+          <div class="flex items-center justify-between pb-4 border-b border-black/5">
+            <div class="flex items-center gap-3">
+              <span class="font-mono text-xs font-bold text-[#C28E68] bg-[#C28E68]/10 px-3 py-1 rounded-full uppercase tracking-wider">Seção 01</span>
+              <h3 class="font-outfit font-bold text-lg text-[#1C1514]">Presença &amp; Posicionamento</h3>
+            </div>
+            <span class="text-xs text-[#8A7E76] font-outfit uppercase tracking-widest hidden sm:inline-block">Fase de Atração</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+            <!-- Serviço: Mídia Social -->
+            <div class="p-6 bg-[#F5F0EB]/60 rounded-2xl border border-black/5 space-y-3 hover:border-[#C28E68]/30 transition-all">
+              <div class="w-9 h-9 rounded-xl bg-[#C28E68]/10 flex items-center justify-center text-[#C28E68]">
+                <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 8v4l2.5 2.5"/></svg>
+              </div>
+              <h4 class="font-outfit font-bold text-base text-[#1C1514]">Mídia Social</h4>
+              <p class="text-xs text-[#8A7E76] leading-relaxed">Gestão completa de redes sociais com planejamento editorial, criação de conteúdo e análise de engajamento.</p>
+              <div class="flex flex-wrap gap-1.5 pt-2">
+                <span class="service-tag">Instagram</span>
+                <span class="service-tag">TikTok</span>
+                <span class="service-tag">LinkedIn</span>
+              </div>
+            </div>
+
+            <!-- Serviço: Identidade Visual -->
+            <div class="p-6 bg-[#F5F0EB]/60 rounded-2xl border border-black/5 space-y-3 hover:border-[#C28E68]/30 transition-all">
+              <div class="w-9 h-9 rounded-xl bg-[#C28E68]/10 flex items-center justify-center text-[#C28E68]">
+                <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 2L2 7l10 5 10-5-10-5ZM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              </div>
+              <h4 class="font-outfit font-bold text-base text-[#1C1514]">Identidade Visual</h4>
+              <p class="text-xs text-[#8A7E76] leading-relaxed">Construção de branding, logo, paleta de cores, manual de marca e design system completo de alta consistência.</p>
+              <div class="flex flex-wrap gap-1.5 pt-2">
+                <span class="service-tag">Branding</span>
+                <span class="service-tag">Logo</span>
+                <span class="service-tag">Design System</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LISTRA INTERLIGANDO UMA SESSÃO COM A OUTRA -->
+        <div class="relative py-6 flex items-center justify-center">
+          <div class="w-[2px] h-16 bg-gradient-to-b from-[#C28E68] via-[#C28E68]/40 to-[#C28E68] rounded-full relative">
+            <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full bg-[#C28E68] border-2 border-[#F5F0EB] shadow-md"></span>
+          </div>
+        </div>
+
+        <!-- MARKETING — SEÇÃO 2: PERFORMANCE & AQUISIÇÃO -->
+        <div class="bg-white border border-black/8 rounded-3xl p-8 sm:p-10 space-y-6 shadow-sm">
+          <div class="flex items-center justify-between pb-4 border-b border-black/5">
+            <div class="flex items-center gap-3">
+              <span class="font-mono text-xs font-bold text-[#C28E68] bg-[#C28E68]/10 px-3 py-1 rounded-full uppercase tracking-wider">Seção 02</span>
+              <h3 class="font-outfit font-bold text-lg text-[#1C1514]">Aquisição &amp; Performance</h3>
+            </div>
+            <span class="text-xs text-[#8A7E76] font-outfit uppercase tracking-widest hidden sm:inline-block">Fase de Conversão</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+            <!-- Serviço: Audiovisual -->
+            <div class="p-6 bg-[#F5F0EB]/60 rounded-2xl border border-black/5 space-y-3 hover:border-[#C28E68]/30 transition-all">
+              <div class="w-9 h-9 rounded-xl bg-[#C28E68]/10 flex items-center justify-center text-[#C28E68]">
+                <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="m15 10-4 4-2-2"/><rect stroke="currentColor" stroke-width="1.8" x="3" y="3" width="18" height="18" rx="3"/></svg>
+              </div>
+              <h4 class="font-outfit font-bold text-base text-[#1C1514]">Audiovisual</h4>
+              <p class="text-xs text-[#8A7E76] leading-relaxed">Produção de vídeos institucionais, reels de alta retenção, motion graphics e fotografia comercial.</p>
+              <div class="flex flex-wrap gap-1.5 pt-2">
+                <span class="service-tag">Vídeo</span>
+                <span class="service-tag">Motion</span>
+                <span class="service-tag">Fotografia</span>
+              </div>
+            </div>
+
+            <!-- Serviço: Tráfego Pago -->
+            <div class="p-6 bg-[#F5F0EB]/60 rounded-2xl border border-black/5 space-y-3 hover:border-[#C28E68]/30 transition-all">
+              <div class="w-9 h-9 rounded-xl bg-[#C28E68]/10 flex items-center justify-center text-[#C28E68]">
+                <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 12h4l3-9 4 18 3-9h4"/></svg>
+              </div>
+              <h4 class="font-outfit font-bold text-base text-[#1C1514]">Tráfego Pago</h4>
+              <p class="text-xs text-[#8A7E76] leading-relaxed">Campanhas de aquisição qualificada no Google Ads e Meta Ads com relatórios de retorno sobre investimento.</p>
+              <div class="flex flex-wrap gap-1.5 pt-2">
+                <span class="service-tag">Google Ads</span>
+                <span class="service-tag">Meta Ads</span>
+                <span class="service-tag">Analytics</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- SEÇÃO TECNOLOGIA (BUSINESS TECH) -->
+        <!-- ============================== -->
+        <div id="tecnologia" class="mt-20 scroll-mt-28 bg-[#120E0C] border border-[#C28E68]/20 rounded-[32px] p-8 sm:p-12 space-y-8 shadow-2xl relative overflow-hidden">
+          
+          <!-- Background Ambient Glow -->
+          <div class="absolute -right-20 -top-20 w-96 h-96 rounded-full bg-[#C28E68]/15 blur-[100px] pointer-events-none"></div>
+          <div class="absolute -left-20 -bottom-20 w-96 h-96 rounded-full bg-[#C28E68]/10 blur-[100px] pointer-events-none"></div>
+          
+          <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-6 border-b border-white/10">
+            <div>
+              <div class="inline-flex items-center gap-2 font-outfit text-xs font-bold text-[#C28E68] bg-[#C28E68]/15 border border-[#C28E68]/30 px-3 py-1 rounded-full uppercase tracking-wider mb-2">
+                <span class="w-2 h-2 rounded-full bg-[#C28E68]"></span>
+                Soluções Digitais
+              </div>
+              <h3 class="font-outfit font-extrabold text-2xl sm:text-3xl text-[#FAFAFA]">
+                Tecnologia para <span class="font-serif italic font-normal text-[#C28E68]">Escalar Seu Negócio</span>
+              </h3>
+            </div>
+            <p class="text-xs text-[#C2B4A3] font-outfit max-w-xs">Desenvolvemos ferramentas sob medida para simplificar processos e aumentar as vendas da sua empresa.</p>
+          </div>
+
+          <!-- Grid de Serviços Tech (Claro e Direto) -->
+          <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- Tech Card 1 -->
+            <div class="tech-card group relative p-6 bg-white/[0.03] hover:bg-white/[0.07] border border-white/10 hover:border-[#C28E68]/50 rounded-2xl transition-all duration-300 shadow-md">
+              <div class="flex items-center justify-between mb-4">
+                <span class="w-8 h-8 rounded-lg bg-[#C28E68]/20 flex items-center justify-center font-outfit font-bold text-xs text-[#C28E68]">01</span>
+                <span class="font-outfit text-[11px] text-[#C28E68] uppercase tracking-wider">Web &amp; Vendas</span>
+              </div>
+              <h4 class="font-outfit font-bold text-base text-[#FAFAFA] mb-2 group-hover:text-[#C28E68] transition-colors">Sites &amp; Landing Pages</h4>
+              <p class="text-xs text-[#C2B4A3] leading-relaxed mb-4">Sites institucionais e páginas de vendas com carregamento rápido no celular e design focado em transformar visitantes em clientes.</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="service-tag border-white/10 text-[#C2B4A3]">Sites Institucionais</span>
+                <span class="service-tag border-white/10 text-[#C2B4A3]">Páginas de Venda</span>
+                <span class="service-tag border-white/10 text-[#C2B4A3]">Rápido no Celular</span>
+              </div>
+            </div>
+
+            <!-- Tech Card 2 -->
+            <div class="tech-card group relative p-6 bg-white/[0.03] hover:bg-white/[0.07] border border-white/10 hover:border-[#C28E68]/50 rounded-2xl transition-all duration-300 shadow-md">
+              <div class="flex items-center justify-between mb-4">
+                <span class="w-8 h-8 rounded-lg bg-[#C28E68]/20 flex items-center justify-center font-outfit font-bold text-xs text-[#C28E68]">02</span>
+                <span class="font-outfit text-[11px] text-[#C28E68] uppercase tracking-wider">Gestão &amp; Controle</span>
+              </div>
+              <h4 class="font-outfit font-bold text-base text-[#FAFAFA] mb-2 group-hover:text-[#C28E68] transition-colors">Sistemas &amp; Painéis Sob Medida</h4>
+              <p class="text-xs text-[#C2B4A3] leading-relaxed mb-4">Plataformas e painéis internos para organizar a gestão da empresa, controlar clientes e visualizar relatórios em tempo real.</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="service-tag border-white/10 text-[#C2B4A3]">Painéis de Gestão</span>
+                <span class="service-tag border-white/10 text-[#C2B4A3]">Controle de Clientes</span>
+                <span class="service-tag border-white/10 text-[#C2B4A3]">Relatórios</span>
+              </div>
+            </div>
+
+            <!-- Tech Card 3 -->
+            <div class="tech-card group relative p-6 bg-white/[0.03] hover:bg-white/[0.07] border border-white/10 hover:border-[#C28E68]/50 rounded-2xl transition-all duration-300 shadow-md">
+              <div class="flex items-center justify-between mb-4">
+                <span class="w-8 h-8 rounded-lg bg-[#C28E68]/20 flex items-center justify-center font-outfit font-bold text-xs text-[#C28E68]">03</span>
+                <span class="font-outfit text-[11px] text-[#C28E68] uppercase tracking-wider">Mobile</span>
+              </div>
+              <h4 class="font-outfit font-bold text-base text-[#FAFAFA] mb-2 group-hover:text-[#C28E68] transition-colors">Aplicativos para Celular</h4>
+              <p class="text-xs text-[#C2B4A3] leading-relaxed mb-4">Criação de aplicativos para iPhone (iOS) e Android com navegação simples, visual moderno e envio de avisos diretamente ao cliente.</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="service-tag border-white/10 text-[#C2B4A3]">iPhone (iOS)</span>
+                <span class="service-tag border-white/10 text-[#C2B4A3]">Android</span>
+                <span class="service-tag border-white/10 text-[#C2B4A3]">Notificações</span>
+              </div>
+            </div>
+
+            <!-- Tech Card 4 -->
+            <div class="tech-card group relative p-6 bg-white/[0.03] hover:bg-white/[0.07] border border-white/10 hover:border-[#C28E68]/50 rounded-2xl transition-all duration-300 shadow-md">
+              <div class="flex items-center justify-between mb-4">
+                <span class="w-8 h-8 rounded-lg bg-[#C28E68]/20 flex items-center justify-center font-outfit font-bold text-xs text-[#C28E68]">04</span>
+                <span class="font-outfit text-[11px] text-[#C28E68] uppercase tracking-wider">Produtividade</span>
+              </div>
+              <h4 class="font-outfit font-bold text-base text-[#FAFAFA] mb-2 group-hover:text-[#C28E68] transition-colors">Automação de Atendimento &amp; Processos</h4>
+              <p class="text-xs text-[#C2B4A3] leading-relaxed mb-4">Integração de ferramentas do seu negócio para automatizar respostas, agendamentos, registros de vendas e atendimento de clientes 24h.</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="service-tag border-white/10 text-[#C2B4A3]">Atendimento 24/7</span>
+                <span class="service-tag border-white/10 text-[#C2B4A3]">Integração</span>
+                <span class="service-tag border-white/10 text-[#C2B4A3]">Processos</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- FAQ SECTION                     -->
+    <!-- ============================== -->
+    <section id="faq" class="py-20 border-t border-black/5 relative z-10">
+      <div class="max-w-3xl mx-auto px-6 sm:px-12">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="w-2 h-2 rounded-full bg-[#C28E68]"></span>
+          <span class="text-xs font-outfit text-[#8A7E76] uppercase tracking-widest">Dúvidas Comuns</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-outfit font-bold text-[#1C1514] mb-10">
+          Perguntas <span class="font-serif italic font-normal text-[#C28E68]">Frequentes</span>
+        </h2>
+
+        <div>
+          <div class="faq-item">
+            <button class="faq-header">
+              <span>Como funciona a união de Marketing e Tecnologia na Ousia?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">Integrar branding e tecnologia significa que seu site ou aplicativo não é apenas bonito, mas construído sobre um código ultra-rápido projetado para converter visitantes em clientes pagantes.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-header">
+              <span>Qual o prazo médio de entrega de um projeto completo?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">Projetos institucionais e plataformas web levam em média de 3 a 6 semanas, incluindo a fase de diagnóstico de marca, wireframes UX, codificação e testes de performance.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-header">
+              <span>Quais tecnologias são utilizadas no desenvolvimento?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">Utilizamos um ecossistema moderno com React, Next.js, TailwindCSS e hospedagem na Vercel para garantir tempo de carregamento inferior a 0.5s e nota máxima no Google PageSpeed.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-header">
+              <span>Vocês atendem clientes internacionais?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">Sim. Atendemos marcas no Brasil, Portugal e Estados Unidos com fluência completa em português, inglês e espanhol, mantendo reuniões semanais de alinhamento em qualquer fuso horário.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- CTA BANNER                      -->
+    <!-- ============================== -->
+    <section id="contato" class="py-16 relative z-10">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-12">
+        <div class="cta-banner">
+          <div class="relative z-10 space-y-6">
+            <div class="flex items-center justify-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#C28E68]"></span>
+              <span class="text-xs font-outfit text-[#C2B4A3] uppercase tracking-widest">Entre em Contato</span>
+            </div>
+            <h2 class="text-xl sm:text-3xl font-outfit font-extrabold text-[#FAFAFA] leading-tight max-w-2xl mx-auto">
+              Pronto para elevar a presença digital da <span class="font-serif italic font-normal text-[#C28E68]">sua marca</span>?
+            </h2>
+            <p class="text-xs sm:text-sm text-[#C2B4A3] max-w-lg mx-auto">
+              Fale com os nossos especialistas e receba um diagnóstico exclusivo de branding e tecnologia para a sua empresa.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+              <a href="https://wa.me/" target="_blank" class="bg-[#C28E68] text-white font-outfit font-bold text-sm px-7 py-3 rounded-full inline-flex items-center gap-2 hover:brightness-110 transition-all">Iniciar via WhatsApp</a>
+              <a href="mailto:contato@ousia.studio" class="border border-white/20 text-white font-outfit font-bold text-sm px-7 py-3 rounded-full inline-flex items-center gap-2 hover:border-white/50 transition-all">Enviar E-mail</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- FOOTER                          -->
+    <!-- ============================== -->
+    <footer class="site-footer w-full py-12 relative z-10">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-10">
+        <div class="space-y-4 sm:col-span-2">
+          <img src="/criativos/assets/logos/logo-ousia-creme-transparente.png" alt="Ousia Studio" class="h-7 w-auto" />
+          <p class="text-xs text-[#C2B4A3] max-w-sm leading-relaxed">Estratégia de Marketing e Engenharia de Tecnologia sob medida para marcas exigentes.</p>
+        </div>
+        <div class="space-y-3">
+          <p class="font-outfit text-xs font-bold tracking-widest text-[#C28E68] uppercase">Navegação</p>
+          <ul class="space-y-2 text-xs text-[#C2B4A3]">
+            <li><a href="#solucoes" class="hover:text-white transition-colors">Soluções</a></li>
+            <li><a href="#cases" class="hover:text-white transition-colors">Cases</a></li>
+            <li><a href="#faq" class="hover:text-white transition-colors">FAQ</a></li>
+            <li><a href="#contato" class="hover:text-white transition-colors">Contato</a></li>
+          </ul>
+        </div>
+        <div class="space-y-3">
+          <p class="font-outfit text-xs font-bold tracking-widest text-[#C28E68] uppercase">Presença Global</p>
+          <p class="text-xs text-[#C2B4A3]">Balneário Camboriú &bull; SC &bull; Brasil</p>
+          <p class="text-xs text-[#C28E68] font-mono">contato@ousia.studio</p>
+        </div>
+      </div>
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center text-xs text-[#C2B4A3] gap-2">
+        <p>&copy; 2026 Ousia Studio. Todos os direitos reservados.</p>
+        <p class="font-outfit text-[9px] tracking-widest uppercase text-[#C28E68]">Desenvolvido sob medida por Ousia Tech</p>
+      </div>
+    </footer>
+
+    <script src="/main.js"></script>
+  </body>
+</html>
