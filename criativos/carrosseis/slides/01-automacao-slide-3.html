@@ -33,7 +33,7 @@
 
     .main-content-wrapper {
       position: relative; z-index: 10; display: flex; flex-direction: column;
-      justify-content: center; flex: 1; gap: 24px; margin: 20px 0;
+      justify-content: center; flex: 1; gap: 28px; margin: 24px 0;
     }
 
     .category-label { font-family: 'Tenor Sans', sans-serif; font-size: 17px; color: var(--accent); letter-spacing: 0.06em; }
@@ -42,22 +42,13 @@
     .lead-text { font-family: 'Tenor Sans', sans-serif; font-size: 22px; color: var(--muted); line-height: 1.65; font-weight: 400; }
 
     .hero-strip {
-      position: relative; z-index: 10; width: 100%; height: 340px;
+      position: relative; z-index: 10; width: 100%; height: 380px;
       overflow: hidden; flex-shrink: 0; box-shadow: 0 20px 50px rgba(0,0,0,0.6);
       background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000');
       background-size: cover; background-position: center center; background-repeat: no-repeat;
       filter: sepia(0.22) saturate(1.15) contrast(1.14) brightness(0.85);
     }
     .hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,21,20,0.05) 0%, rgba(28,21,20,0.85) 100%); }
-
-    /* Barra de Ações Rápidas abaixo da Imagem (Salvar & Compartilhar) */
-    .action-icons-bar {
-      position: relative; z-index: 10; display: flex; align-items: center; justify-content: flex-start; gap: 24px; margin-top: -8px;
-    }
-    .action-btn-item {
-      display: flex; align-items: center; gap: 8px; font-family: 'Tenor Sans', sans-serif; font-size: 15px; color: var(--tan); letter-spacing: 0.04em;
-    }
-    .action-btn-item svg { width: 20px; height: 20px; fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
     .footer-bar { position: relative; z-index: 10; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-hairline); padding-top: 28px; }
     .agency-url { font-family: 'Tenor Sans', sans-serif; font-size: 15px; letter-spacing: 0.04em; color: var(--muted-dim); }
@@ -85,18 +76,6 @@
       </p>
       <div class="hero-strip">
         <div class="hero-overlay"></div>
-      </div>
-
-      <!-- Ícones de Salvar e Compartilhar abaixo da imagem -->
-      <div class="action-icons-bar">
-        <div class="action-btn-item">
-          <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
-          <span>Salvar</span>
-        </div>
-        <div class="action-btn-item">
-          <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-          <span>Compartilhar</span>
-        </div>
       </div>
     </main>
 
