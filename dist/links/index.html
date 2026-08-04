@@ -73,49 +73,25 @@
       gap: 20px;
     }
 
-    /* Header Profile Card */
-    .header-card {
-      background: linear-gradient(180deg, var(--bg-card-top) 0%, var(--bg-card) 100%);
-      border: 1px solid var(--border-subtle);
-      border-radius: 24px;
-      padding: 36px 28px;
+    /* Header Profile (Sem card ou container) */
+    .profile-header {
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
       gap: 16px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-      position: relative;
-      overflow: hidden;
-    }
-    .header-card::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--border-hairline), transparent);
+      padding: 12px 0 8px;
     }
 
-    .logo-wrapper {
-      position: relative;
-      width: 88px;
-      height: 88px;
-      border-radius: 50%;
-      background: linear-gradient(145deg, #2D2220, #16100F);
-      border: 1px solid var(--border-hairline);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), 0 0 24px var(--accent-glow);
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .logo-wrapper:hover {
-      transform: scale(1.06);
-    }
-    .logo-img {
-      width: 100%;
-      height: auto;
+    .brand-logo-img {
+      height: 48px;
+      width: auto;
       object-fit: contain;
+      filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.6));
+      transition: transform 0.3s ease;
+    }
+    .brand-logo-img:hover {
+      transform: scale(1.05);
     }
 
     .status-badge {
@@ -344,11 +320,9 @@
 
   <div class="container">
     
-    <!-- Profile Header Card -->
-    <header class="header-card">
-      <div class="logo-wrapper">
-        <img src="/assets/logo-ousia-creme-transparente-CbIQyLkH.png" alt="Ousia Studio Logo" class="logo-img" />
-      </div>
+    <!-- Header Profile (Logo limpa sem card) -->
+    <header class="profile-header">
+      <img src="/assets/logo-ousia-creme-transparente-CbIQyLkH.png" alt="Ousia Studio Logo" class="brand-logo-img" />
 
       <div class="status-badge">
         <span class="status-dot"></span>
