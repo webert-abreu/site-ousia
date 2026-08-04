@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Slide 01 — Capa | Ousia Studio</title>
+  <title>Slide 01 — Capa (n8n) | Ousia Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Instrument+Serif:ital@0;1&family=Tenor+Sans&display=swap" rel="stylesheet">
@@ -31,25 +31,33 @@
     .logo-img { height: 38px; width: auto; object-fit: contain; }
     .slide-counter { font-family: 'Tenor Sans', sans-serif; font-size: 15px; color: var(--accent); letter-spacing: 0.08em; font-weight: 600; }
 
-    /* Conteúdo centralizado perfeitamente na vertical */
     .main-content-wrapper {
       position: relative; z-index: 10; display: flex; flex-direction: column;
-      justify-content: center; flex: 1; gap: 28px; margin: 24px 0;
+      justify-content: center; flex: 1; gap: 24px; margin: 20px 0;
     }
 
     .category-label { font-family: 'Tenor Sans', sans-serif; font-size: 17px; color: var(--accent); letter-spacing: 0.06em; }
-    .main-headline { font-family: 'Cormorant Garamond', serif; font-size: 60px; font-weight: 600; line-height: 1.08; color: var(--cream); letter-spacing: -0.01em; }
-    .main-headline .serif-italic { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: 66px; color: var(--tan); }
+    .main-headline { font-family: 'Cormorant Garamond', serif; font-size: 58px; font-weight: 600; line-height: 1.08; color: var(--cream); letter-spacing: -0.01em; }
+    .main-headline .serif-italic { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: 64px; color: var(--tan); }
     .lead-text { font-family: 'Tenor Sans', sans-serif; font-size: 22px; color: var(--muted); line-height: 1.65; font-weight: 400; }
 
     .hero-strip {
-      position: relative; z-index: 10; width: 100%; height: 380px;
+      position: relative; z-index: 10; width: 100%; height: 340px;
       overflow: hidden; flex-shrink: 0; box-shadow: 0 20px 50px rgba(0,0,0,0.6);
       background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000');
       background-size: cover; background-position: center center; background-repeat: no-repeat;
       filter: sepia(0.22) saturate(1.15) contrast(1.14) brightness(0.85);
     }
     .hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,21,20,0.05) 0%, rgba(28,21,20,0.85) 100%); }
+
+    /* Barra de Ações Rápidas abaixo da Imagem (Salvar & Compartilhar) */
+    .action-icons-bar {
+      position: relative; z-index: 10; display: flex; align-items: center; justify-content: flex-start; gap: 24px; margin-top: -8px;
+    }
+    .action-btn-item {
+      display: flex; align-items: center; gap: 8px; font-family: 'Tenor Sans', sans-serif; font-size: 15px; color: var(--tan); letter-spacing: 0.04em;
+    }
+    .action-btn-item svg { width: 20px; height: 20px; fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
     .footer-bar { position: relative; z-index: 10; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-hairline); padding-top: 28px; }
     .agency-url { font-family: 'Tenor Sans', sans-serif; font-size: 15px; letter-spacing: 0.04em; color: var(--muted-dim); }
@@ -67,17 +75,29 @@
       <span class="slide-counter">01 / 05</span>
     </header>
 
-    <!-- Conteúdo Centralizado na Vertical -->
     <main class="main-content-wrapper">
-      <span class="category-label">Automação Inteligente</span>
+      <span class="category-label">Automação com n8n &amp; IA</span>
       <h1 class="main-headline">
-        Sua equipe ainda perde tempo com <span class="serif-italic">tarefas repetitivas</span>?
+        Como fluxos no <span class="serif-italic">n8n e inteligência artificial</span> eliminam o trabalho manual.
       </h1>
       <p class="lead-text">
-        Descubra como a automação autoral transforma processos manuais lentos em vendas e conversões sem esforço, 24 horas por dia.
+        Automatizamos a entrada de leads, respostas instantâneas no WhatsApp e sincronização de CRM sem que você precise digitar uma única linha.
       </p>
+
       <div class="hero-strip">
         <div class="hero-overlay"></div>
+      </div>
+
+      <!-- Ícones de Salvar e Compartilhar abaixo da imagem -->
+      <div class="action-icons-bar">
+        <div class="action-btn-item">
+          <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          <span>Salvar</span>
+        </div>
+        <div class="action-btn-item">
+          <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          <span>Compartilhar</span>
+        </div>
       </div>
     </main>
 
