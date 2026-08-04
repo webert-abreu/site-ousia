@@ -17,293 +17,220 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       background-color: var(--bg-page); color: var(--cream-soft); font-family: 'Tenor Sans', sans-serif;
-      margin: 0; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; min-height: 100vh;
+      margin: 0; padding: 32px 20px; display: flex; flex-direction: column; align-items: center; min-height: 100vh;
     }
 
-    .dashboard-header { text-align: center; margin-bottom: 36px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
-    .studio-tag { font-family: 'Space Mono', monospace; font-size: 13px; color: var(--accent); letter-spacing: 0.05em; }
-    .dashboard-title { font-family: 'Cormorant Garamond', serif; font-size: 38px; color: var(--cream); font-weight: 600; }
-    .dashboard-desc { font-family: 'Tenor Sans', sans-serif; font-size: 16px; color: var(--muted); max-width: 680px; line-height: 1.5; }
+    .top-navbar {
+      width: 100%; max-width: 1200px; display: flex; justify-content: space-between; align-items: center;
+      padding-bottom: 24px; border-bottom: 1px solid var(--border-hairline); margin-bottom: 32px; flex-wrap: wrap; gap: 16px;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 14px; }
+    .nav-logo { height: 32px; width: auto; }
+    .nav-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: var(--cream); font-weight: 600; }
+    .nav-tag { font-family: 'Space Mono', monospace; font-size: 12px; color: var(--accent); }
 
-    /* Fileira de Carrossel com rolagem horizontal */
-    .carousel-container {
-      display: flex; gap: 32px; overflow-x: auto; max-width: 100%; padding: 20px 10px 40px; scroll-behavior: smooth;
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .btn-view {
+      background: rgba(43,33,32,0.6); color: var(--muted); border: 1px solid var(--border-subtle);
+      padding: 10px 18px; border-radius: 100px; font-family: 'Tenor Sans', sans-serif; font-size: 13px; cursor: pointer; transition: all 0.2s ease;
+    }
+    .btn-view.active, .btn-view:hover { background: var(--bg-card-top); color: var(--cream); border-color: var(--tan); }
+    .btn-download-all {
+      background: #C28E68; color: #FFFFFF; font-family: 'Tenor Sans', sans-serif; font-size: 13px; font-weight: 700;
+      border: none; padding: 10px 24px; border-radius: 100px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+      box-shadow: 0 10px 25px rgba(194,142,104,0.3); transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .btn-download-all:hover { transform: translateY(-2px); opacity: 0.95; }
+
+    /* MODO CARROSSEL SLIDER INTERATIVO */
+    .slider-view-wrapper {
+      display: flex; flex-direction: column; align-items: center; gap: 24px; width: 100%; max-width: 600px;
+    }
+    .slider-controls { display: flex; align-items: center; gap: 20px; }
+    .btn-arrow {
+      background: var(--bg-card); color: var(--cream); border: 1px solid var(--border-subtle);
+      width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: all 0.2s ease; font-size: 18px;
+    }
+    .btn-arrow:hover { background: var(--accent); border-color: var(--accent); }
+    .btn-arrow:disabled { opacity: 0.3; cursor: not-allowed; }
+    .slide-progress { font-family: 'Space Mono', monospace; font-size: 14px; color: var(--accent); }
+
+    .iframe-scaler-single {
+      width: 456px; height: 570px; position: relative; overflow: hidden; border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.8); border: 1px solid var(--border-subtle);
+    }
+    .iframe-scaler-single iframe {
+      width: 1080px; height: 1350px; border: none; transform: scale(0.4222); transform-origin: top left;
     }
 
-    /* Cada slide individual no tamanho exato de visualização 540x675 (escala 0.5 do 1080x1350 real) */
-    .slide-wrapper { display: flex; flex-direction: column; align-items: center; gap: 16px; flex-shrink: 0; }
-    .slide-label { font-family: 'Space Mono', monospace; font-size: 13px; color: var(--tan); }
+    /* MODO GRADE / FILEIRA (TODOS OS 5 SLIDES) */
+    .grid-view-wrapper {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; width: 100%; max-width: 1300px;
+    }
+    .grid-card {
+      display: flex; flex-direction: column; align-items: center; gap: 12px; background: var(--bg-card);
+      padding: 16px; border-radius: 14px; border: 1px solid var(--border-subtle);
+    }
+    .grid-card-title { font-family: 'Space Mono', monospace; font-size: 12px; color: var(--tan); }
 
-    .slide-canvas {
-      width: 1080px; height: 1350px; flex-shrink: 0; background-color: var(--bg-card);
-      position: relative; overflow: hidden; display: flex; flex-direction: column;
-      justify-content: space-between; padding: 72px; transform-origin: top left;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.95); border: 1px solid var(--border-subtle);
+    .iframe-scaler-grid {
+      width: 216px; height: 270px; position: relative; overflow: hidden; border-radius: 8px;
+      border: 1px solid var(--border-hairline);
+    }
+    .iframe-scaler-grid iframe {
+      width: 1080px; height: 1350px; border: none; transform: scale(0.2); transform-origin: top left; pointer-events: none;
     }
 
-    /* Container de visualização dimensionado */
-    .preview-box { width: 432px; height: 540px; position: relative; overflow: hidden; border-radius: 12px; }
-    .preview-box .slide-canvas { transform: scale(0.4); }
-
-    .grain-overlay { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 30; opacity: 0.13; mix-blend-mode: overlay; }
-    .bg-layer { position: absolute; inset: 0; background: radial-gradient(circle at 80% 20%, rgba(194,142,104,0.08) 0%, transparent 55%), linear-gradient(180deg, var(--bg-card-top) 0%, var(--bg-card) 100%); z-index: 1; }
-
-    .header-bar { position: relative; z-index: 10; display: flex; justify-content: space-between; align-items: center; padding-bottom: 28px; border-bottom: 1px solid var(--border-hairline); }
-    .logo-img { height: 38px; width: auto; object-fit: contain; }
-    .slide-counter { font-family: 'Space Mono', monospace; font-size: 14px; color: var(--accent); }
-
-    .content-area { position: relative; z-index: 10; display: flex; flex-direction: column; gap: 24px; flex: 1; justify-content: center; }
-    .category-label { font-family: 'Tenor Sans', sans-serif; font-size: 17px; color: var(--accent); letter-spacing: 0.04em; }
-    .main-headline { font-family: 'Cormorant Garamond', serif; font-size: 58px; font-weight: 600; line-height: 1.1; color: var(--cream); letter-spacing: -0.01em; }
-    .main-headline .serif-italic { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: 64px; color: var(--tan); }
-    .lead-text { font-family: 'Tenor Sans', sans-serif; font-size: 22px; color: var(--muted); line-height: 1.65; font-weight: 400; }
-
-    .hero-strip {
-      position: relative; z-index: 10; width: 100%; height: 360px; margin: 20px 0;
-      overflow: hidden; flex-shrink: 0; box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-      background-size: cover; background-position: center center; background-repeat: no-repeat;
-      filter: sepia(0.22) saturate(1.15) contrast(1.14) brightness(0.85);
+    .btn-download-single {
+      background: transparent; color: var(--tan); border: 1px solid var(--border-hairline);
+      padding: 6px 14px; border-radius: 100px; font-family: 'Space Mono', monospace; font-size: 11px; cursor: pointer; transition: all 0.2s ease;
     }
-    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,21,20,0.05) 0%, rgba(28,21,20,0.85) 100%); }
-
-    /* Indicador "Arraste para o lado →" no Rodapé */
-    .footer-bar { position: relative; z-index: 10; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-hairline); padding-top: 28px; }
-    .agency-url { font-family: 'Space Mono', monospace; font-size: 14px; letter-spacing: 0.02em; color: var(--muted-dim); }
-    .swipe-indicator { display: flex; align-items: center; gap: 8px; font-family: 'Tenor Sans', sans-serif; font-size: 15px; color: var(--accent); font-weight: 600; }
-    .swipe-indicator svg { width: 18px; height: 18px; fill: currentColor; }
-
-    .btn-download-slide {
-      background: var(--bg-card); color: var(--tan); font-family: 'Space Mono', monospace; font-size: 12px;
-      border: 1px solid var(--border-subtle); padding: 10px 18px; border-radius: 100px; cursor: pointer;
-      display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s ease;
-    }
-    .btn-download-slide:hover { background: var(--accent); color: #FFF; border-color: var(--accent); }
+    .btn-download-single:hover { background: var(--accent); color: #FFF; border-color: var(--accent); }
   </style>
 </head>
 <body>
 
-  <header class="dashboard-header">
-    <span class="studio-tag">✦ CARROSSEL INSTAGRAM (5 SLIDES)</span>
-    <h1 class="dashboard-title">Engenharia de Automação & Conversão</h1>
-    <p class="dashboard-desc">Design limpo autoral com indicador "Arraste para o lado →" em todos os slides. Clique no botão de cada slide para baixar em PNG 1080x1350.</p>
+  <!-- BARRA DE AÇÕES -->
+  <header class="top-navbar">
+    <div class="nav-brand">
+      <img src="../assets/logos/logo-ousia-creme-transparente.png" alt="Ousia" class="nav-logo" />
+      <div>
+        <h1 class="nav-title">Carrossel — Automação de Processos</h1>
+        <span class="nav-tag">5 Slides Autorais • Resolução 1080x1350</span>
+      </div>
+    </div>
+
+    <div class="nav-actions">
+      <button class="btn-view active" id="btnSingleMode" onclick="switchMode('single')">Modo Slide</button>
+      <button class="btn-view" id="btnGridMode" onclick="switchMode('grid')">Modo Grade (Todos)</button>
+      <button class="btn-download-all" id="btnDownloadAll" onclick="downloadAllSlides()">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg>
+        <span>Baixar Todos (5 PNGs)</span>
+      </button>
+    </div>
   </header>
 
-  <div class="carousel-container">
-
-    <!-- SLIDE 1 (CAPA) -->
-    <div class="slide-wrapper">
-      <span class="slide-label">Slide 01 — Capa (Hook)</span>
-      <div class="preview-box">
-        <div class="post-canvas" id="slide1">
-          <svg class="grain-overlay" width="100%" height="100%"><filter id="noise1"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.13 0"/></filter><rect width="100%" height="100%" filter="url(#noise1)"/></svg>
-          <div class="bg-layer"></div>
-
-          <header class="header-bar">
-            <img src="../assets/logos/logo-ousia-creme-transparente.png" alt="Ousia" class="logo-img" />
-            <span class="slide-counter">01 / 05</span>
-          </header>
-
-          <main class="content-area">
-            <span class="category-label">Automação Inteligente</span>
-            <h1 class="main-headline">
-              Sua equipe ainda perde tempo com <span class="serif-italic">tarefas repetitivas</span>?
-            </h1>
-            <p class="lead-text">
-              Descubra como a automação autoral transforma processos manuais lentos em vendas e conversões sem esforço, 24 horas por dia.
-            </p>
-          </main>
-
-          <div class="hero-strip" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000');">
-            <div class="hero-overlay"></div>
-          </div>
-
-          <footer class="footer-bar">
-            <span class="agency-url">ousiastudio.com.br</span>
-            <div class="swipe-indicator">
-              <span>Arraste para o lado</span>
-              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-          </footer>
-        </div>
-      </div>
-      <button class="btn-download-slide" onclick="downloadSlide('slide1', 'ousia-carrossel-01-capa.png')">Baixar Slide 1</button>
+  <!-- MODO SLIDE INTERATIVO -->
+  <div id="singleContainer" class="slider-view-wrapper">
+    <div class="slider-controls">
+      <button class="btn-arrow" id="btnPrev" onclick="changeSlide(-1)">&larr;</button>
+      <span class="slide-progress" id="slideNumIndicator">Slide 01 / 05</span>
+      <button class="btn-arrow" id="btnNext" onclick="changeSlide(1)">&rarr;</button>
     </div>
 
-    <!-- SLIDE 2 (O GARGALO MANUAL) -->
-    <div class="slide-wrapper">
-      <span class="slide-label">Slide 02 — O Problema</span>
-      <div class="preview-box">
-        <div class="post-canvas" id="slide2">
-          <svg class="grain-overlay" width="100%" height="100%"><filter id="noise2"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.13 0"/></filter><rect width="100%" height="100%" filter="url(#noise2)"/></svg>
-          <div class="bg-layer"></div>
-
-          <header class="header-bar">
-            <img src="../assets/logos/logo-ousia-creme-transparente.png" alt="Ousia" class="logo-img" />
-            <span class="slide-counter">02 / 05</span>
-          </header>
-
-          <main class="content-area">
-            <span class="category-label">01. O Gargalo Operacional</span>
-            <h1 class="main-headline">
-              O custo silencioso de <span class="serif-italic">atender no manual</span>.
-            </h1>
-            <p class="lead-text">
-              Demorar mais de 5 minutos para responder um lead reduz suas chances de conversão em até 80%. O cliente atual exige agilidade imediata.
-            </p>
-          </main>
-
-          <div class="hero-strip" style="background-image: url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1000');">
-            <div class="hero-overlay"></div>
-          </div>
-
-          <footer class="footer-bar">
-            <span class="agency-url">ousiastudio.com.br</span>
-            <div class="swipe-indicator">
-              <span>Arraste para o lado</span>
-              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-          </footer>
-        </div>
-      </div>
-      <button class="btn-download-slide" onclick="downloadSlide('slide2', 'ousia-carrossel-02-problema.png')">Baixar Slide 2</button>
+    <div class="iframe-scaler-single">
+      <iframe id="singleFrame" src="slides/01-automacao-slide-1.html"></iframe>
     </div>
 
-    <!-- SLIDE 3 (A SOLUÇÃO) -->
-    <div class="slide-wrapper">
-      <span class="slide-label">Slide 03 — A Solução</span>
-      <div class="preview-box">
-        <div class="post-canvas" id="slide3">
-          <svg class="grain-overlay" width="100%" height="100%"><filter id="noise3"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.13 0"/></filter><rect width="100%" height="100%" filter="url(#noise3)"/></svg>
-          <div class="bg-layer"></div>
-
-          <header class="header-bar">
-            <img src="../assets/logos/logo-ousia-creme-transparente.png" alt="Ousia" class="logo-img" />
-            <span class="slide-counter">03 / 05</span>
-          </header>
-
-          <main class="content-area">
-            <span class="category-label">02. Integração Fluida</span>
-            <h1 class="main-headline">
-              Conectamos seu site ao <span class="serif-italic">WhatsApp e CRM</span>.
-            </h1>
-            <p class="lead-text">
-              Criamos fluxos inteligentes que qualificam o visitante, respondem dúvidas instantâneas e agendam reuniões sem interferência humana.
-            </p>
-          </main>
-
-          <div class="hero-strip" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000');">
-            <div class="hero-overlay"></div>
-          </div>
-
-          <footer class="footer-bar">
-            <span class="agency-url">ousiastudio.com.br</span>
-            <div class="swipe-indicator">
-              <span>Arraste para o lado</span>
-              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-          </footer>
-        </div>
-      </div>
-      <button class="btn-download-slide" onclick="downloadSlide('slide3', 'ousia-carrossel-03-solucao.png')">Baixar Slide 3</button>
-    </div>
-
-    <!-- SLIDE 4 (RESULTADOS) -->
-    <div class="slide-wrapper">
-      <span class="slide-label">Slide 04 — O Impacto</span>
-      <div class="preview-box">
-        <div class="post-canvas" id="slide4">
-          <svg class="grain-overlay" width="100%" height="100%"><filter id="noise4"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.13 0"/></filter><rect width="100%" height="100%" filter="url(#noise4)"/></svg>
-          <div class="bg-layer"></div>
-
-          <header class="header-bar">
-            <img src="../assets/logos/logo-ousia-creme-transparente.png" alt="Ousia" class="logo-img" />
-            <span class="slide-counter">04 / 05</span>
-          </header>
-
-          <main class="content-area">
-            <span class="category-label">03. Resultados Reais</span>
-            <h1 class="main-headline">
-              Mais tempo para o que <span class="serif-italic">realmente importa</span>.
-            </h1>
-            <p class="lead-text">
-              Elimine erros de digitação, reduza custos operacionais e garanta que 100% dos seus contatos recebam uma experiência impecável.
-            </p>
-          </main>
-
-          <div class="hero-strip" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000');">
-            <div class="hero-overlay"></div>
-          </div>
-
-          <footer class="footer-bar">
-            <span class="agency-url">ousiastudio.com.br</span>
-            <div class="swipe-indicator">
-              <span>Arraste para o lado</span>
-              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-          </footer>
-        </div>
-      </div>
-      <button class="btn-download-slide" onclick="downloadSlide('slide4', 'ousia-carrossel-04-impacto.png')">Baixar Slide 4</button>
-    </div>
-
-    <!-- SLIDE 5 (CTA FINAL) -->
-    <div class="slide-wrapper">
-      <span class="slide-label">Slide 05 — Chamada de Ação</span>
-      <div class="preview-box">
-        <div class="post-canvas" id="slide5">
-          <svg class="grain-overlay" width="100%" height="100%"><filter id="noise5"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.13 0"/></filter><rect width="100%" height="100%" filter="url(#noise5)"/></svg>
-          <div class="bg-layer"></div>
-
-          <header class="header-bar">
-            <img src="../assets/logos/logo-ousia-creme-transparente.png" alt="Ousia" class="logo-img" />
-            <span class="slide-counter">05 / 05</span>
-          </header>
-
-          <main class="content-area">
-            <span class="category-label">Próximo Passo</span>
-            <h1 class="main-headline">
-              Quer automatizar a <span class="serif-italic">operação da sua marca</span>?
-            </h1>
-            <p class="lead-text">
-              Acesse o link da nossa bio (<strong style="color:var(--cream);">ousiastudio.com.br/links</strong>) ou envie uma mensagem no WhatsApp para solicitar seu diagnóstico.
-            </p>
-          </main>
-
-          <div class="hero-strip" style="background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1000');">
-            <div class="hero-overlay"></div>
-          </div>
-
-          <footer class="footer-bar">
-            <span class="agency-url">ousiastudio.com.br</span>
-            <div class="swipe-indicator">
-              <span>Salve este post</span>
-            </div>
-          </footer>
-        </div>
-      </div>
-      <button class="btn-download-slide" onclick="downloadSlide('slide5', 'ousia-carrossel-05-cta.png')">Baixar Slide 5</button>
-    </div>
-
+    <button class="btn-download-single" onclick="downloadCurrentSlide()">Baixar Este Slide em PNG</button>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <!-- MODO GRADE / FILEIRA (TODOS OS SLIDES) -->
+  <div id="gridContainer" class="grid-view-wrapper" style="display: none;">
+    <div class="grid-card">
+      <span class="grid-card-title">01. Capa (Hook)</span>
+      <div class="iframe-scaler-grid"><iframe id="frameSlide1" src="slides/01-automacao-slide-1.html"></iframe></div>
+      <button class="btn-download-single" onclick="downloadSpecificSlide('frameSlide1')">Baixar PNG</button>
+    </div>
+
+    <div class="grid-card">
+      <span class="grid-card-title">02. O Problema</span>
+      <div class="iframe-scaler-grid"><iframe id="frameSlide2" src="slides/01-automacao-slide-2.html"></iframe></div>
+      <button class="btn-download-single" onclick="downloadSpecificSlide('frameSlide2')">Baixar PNG</button>
+    </div>
+
+    <div class="grid-card">
+      <span class="grid-card-title">03. A Solução</span>
+      <div class="iframe-scaler-grid"><iframe id="frameSlide3" src="slides/01-automacao-slide-3.html"></iframe></div>
+      <button class="btn-download-single" onclick="downloadSpecificSlide('frameSlide3')">Baixar PNG</button>
+    </div>
+
+    <div class="grid-card">
+      <span class="grid-card-title">04. O Impacto</span>
+      <div class="iframe-scaler-grid"><iframe id="frameSlide4" src="slides/01-automacao-slide-4.html"></iframe></div>
+      <button class="btn-download-single" onclick="downloadSpecificSlide('frameSlide4')">Baixar PNG</button>
+    </div>
+
+    <div class="grid-card">
+      <span class="grid-card-title">05. Chamada de Ação</span>
+      <div class="iframe-scaler-grid"><iframe id="frameSlide5" src="slides/01-automacao-slide-5.html"></iframe></div>
+      <button class="btn-download-single" onclick="downloadSpecificSlide('frameSlide5')">Baixar PNG</button>
+    </div>
+  </div>
+
   <script>
-    async function downloadSlide(slideId, filename) {
-      const target = document.getElementById(slideId);
-      try {
-        if (document.fonts?.ready) await document.fonts.ready;
-        const c = await html2canvas(target, {
-          scale: 1, width: 1080, height: 1350, windowWidth: 1080, windowHeight: 1350,
-          scrollX: 0, scrollY: 0, x: 0, y: 0, useCORS: true, allowTaint: false, backgroundColor: null, logging: false,
-          onclone: function(clonedDoc) {
-            const el = clonedDoc.getElementById(slideId);
-            if (el) { el.style.transform = 'none'; el.style.margin = '0'; el.style.position = 'relative'; el.style.width = '1080px'; el.style.height = '1350px'; }
-            if (clonedDoc.body) { clonedDoc.body.style.transform = 'none'; clonedDoc.body.style.margin = '0'; clonedDoc.body.style.padding = '0'; clonedDoc.body.style.width = '1080px'; clonedDoc.body.style.height = '1350px'; clonedDoc.body.style.overflow = 'hidden'; }
-          }
-        });
-        const a = document.createElement('a'); a.download = filename; a.href = c.toDataURL('image/png'); a.click();
-      } catch(e) { console.error(e); alert('Erro ao exportar PNG: ' + (e.message || e)); }
+    let currentSlideIndex = 1;
+    const totalSlides = 5;
+    const slidesSources = [
+      'slides/01-automacao-slide-1.html',
+      'slides/01-automacao-slide-2.html',
+      'slides/01-automacao-slide-3.html',
+      'slides/01-automacao-slide-4.html',
+      'slides/01-automacao-slide-5.html'
+    ];
+
+    function changeSlide(direction) {
+      currentSlideIndex += direction;
+      if (currentSlideIndex < 1) currentSlideIndex = 1;
+      if (currentSlideIndex > totalSlides) currentSlideIndex = totalSlides;
+
+      document.getElementById('singleFrame').src = slidesSources[currentSlideIndex - 1];
+      document.getElementById('slideNumIndicator').innerText = `Slide 0${currentSlideIndex} / 05`;
+      document.getElementById('btnPrev').disabled = (currentSlideIndex === 1);
+      document.getElementById('btnNext').disabled = (currentSlideIndex === totalSlides);
     }
+
+    function switchMode(mode) {
+      const singleC = document.getElementById('singleContainer');
+      const gridC = document.getElementById('gridContainer');
+      const btnS = document.getElementById('btnSingleMode');
+      const btnG = document.getElementById('btnGridMode');
+
+      if (mode === 'single') {
+        singleC.style.display = 'flex'; gridC.style.display = 'none';
+        btnS.classList.add('active'); btnG.classList.remove('active');
+      } else {
+        singleC.style.display = 'none'; gridC.style.display = 'grid';
+        btnG.classList.add('active'); btnS.classList.remove('active');
+      }
+    }
+
+    function downloadCurrentSlide() {
+      const iframe = document.getElementById('singleFrame');
+      if (iframe && iframe.contentWindow && iframe.contentWindow.triggerPngDownload) {
+        iframe.contentWindow.triggerPngDownload();
+      }
+    }
+
+    function downloadSpecificSlide(iframeId) {
+      const iframe = document.getElementById(iframeId);
+      if (iframe && iframe.contentWindow && iframe.contentWindow.triggerPngDownload) {
+        iframe.contentWindow.triggerPngDownload();
+      }
+    }
+
+    async function downloadAllSlides() {
+      const btn = document.getElementById('btnDownloadAll');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<span>Baixando 5 Slides...</span>'; btn.style.opacity = '0.7';
+
+      const frames = ['frameSlide1', 'frameSlide2', 'frameSlide3', 'frameSlide4', 'frameSlide5'];
+
+      for (let i = 0; i < frames.length; i++) {
+        const iframe = document.getElementById(frames[i]);
+        if (iframe && iframe.contentWindow && iframe.contentWindow.triggerPngDownload) {
+          await iframe.contentWindow.triggerPngDownload();
+          // Pequena pausa entre cada download para não bloquear o navegador
+          await new Promise(r => setTimeout(r, 600));
+        }
+      }
+
+      btn.innerHTML = originalText; btn.style.opacity = '1';
+    }
+
+    // Inicializa botões
+    changeSlide(0);
   </script>
 </body>
 </html>
