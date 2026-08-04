@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ousia Studio | Links Oficiais & Diagnóstico</title>
-  <meta name="description" content="Estúdio de Branding, Sites de Alta Conversão & Design Estratégico. Acesse nossos links oficiais, agende um diagnóstico de marca ou fale diretamente com a equipe." />
+  <meta name="description" content="Estúdio de Branding, Sites de Alta Conversão & Design Estratégico. Acesse nossos links oficiais, agende um diagnóstico de marca ou fale com nossa equipe." />
   
-  <!-- Favicon & Fonts -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Instrument+Serif:ital@0;1&family=Tenor+Sans&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -15,7 +15,8 @@
     :root {
       --bg-page: #0B0807;
       --bg-card: #1C1514;
-      --bg-card-hover: #261D1B;
+      --bg-card-top: #241C1A;
+      --bg-card-hover: #29201E;
       --border-subtle: #2B2120;
       --border-hairline: rgba(232, 226, 217, 0.14);
       --cream: #F8F5F0;
@@ -24,7 +25,7 @@
       --muted: #C2B4A3;
       --muted-dim: #8A7A6D;
       --accent: #C28E68;
-      --accent-glow: rgba(194, 142, 104, 0.25);
+      --accent-glow: rgba(194, 142, 104, 0.22);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -37,8 +38,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      padding: 48px 20px;
+      justify-content: center;
+      padding: 40px 20px;
       position: relative;
       overflow-x: hidden;
     }
@@ -49,84 +50,71 @@
       pointer-events: none; z-index: 1; opacity: 0.12; mix-blend-mode: overlay;
     }
     .bg-glow-top {
-      position: fixed; top: -150px; left: 50%; transform: translateX(-50%);
-      width: 600px; height: 600px;
+      position: fixed; top: -180px; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 700px;
       background: radial-gradient(circle, rgba(194, 142, 104, 0.15) 0%, rgba(11, 8, 7, 0) 70%);
       pointer-events: none; z-index: 0;
     }
     .bg-glow-bottom {
-      position: fixed; bottom: -200px; left: 50%; transform: translateX(-50%);
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(217, 206, 193, 0.08) 0%, rgba(11, 8, 7, 0) 75%);
+      position: fixed; bottom: -220px; left: 50%; transform: translateX(-50%);
+      width: 750px; height: 750px;
+      background: radial-gradient(circle, rgba(217, 206, 193, 0.07) 0%, rgba(11, 8, 7, 0) 75%);
       pointer-events: none; z-index: 0;
     }
 
     .container {
       width: 100%;
-      max-width: 520px;
+      max-width: 580px;
       position: relative;
       z-index: 10;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 36px;
+      gap: 24px;
     }
 
-    /* Header / Profile */
-    .profile-header {
+    /* Header Profile Card */
+    .header-card {
+      background: linear-gradient(180deg, var(--bg-card-top) 0%, var(--bg-card) 100%);
+      border: 1px solid var(--border-subtle);
+      border-radius: 24px;
+      padding: 36px 28px;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: 18px;
+      gap: 16px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+    .header-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-hairline), transparent);
     }
 
     .logo-wrapper {
       position: relative;
-      width: 96px;
-      height: 96px;
+      width: 88px;
+      height: 88px;
       border-radius: 50%;
-      background: linear-gradient(145deg, #2A201E, #140F0E);
+      background: linear-gradient(145deg, #2D2220, #16100F);
       border: 1px solid var(--border-hairline);
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 16px;
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.8), 0 0 20px var(--accent-glow);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), 0 0 24px var(--accent-glow);
       transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .logo-wrapper:hover {
-      transform: scale(1.05);
+      transform: scale(1.06);
     }
-
     .logo-img {
       width: 100%;
       height: auto;
       object-fit: contain;
-    }
-
-    .brand-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 38px;
-      font-weight: 600;
-      color: var(--cream);
-      letter-spacing: -0.01em;
-      line-height: 1.1;
-    }
-    .brand-title .serif-italic {
-      font-family: 'Instrument Serif', serif;
-      font-style: italic;
-      font-weight: 400;
-      color: var(--tan);
-      margin-left: 4px;
-    }
-
-    .brand-tagline {
-      font-size: 15px;
-      color: var(--muted);
-      max-width: 440px;
-      line-height: 1.6;
-      letter-spacing: 0.02em;
     }
 
     .status-badge {
@@ -137,18 +125,18 @@
       border-radius: 100px;
       background: rgba(194, 142, 104, 0.1);
       border: 1px solid rgba(194, 142, 104, 0.25);
-      font-size: 12px;
+      font-size: 11px;
       color: var(--accent);
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       font-weight: 600;
     }
     .status-dot {
-      width: 7px;
-      height: 7px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
       background-color: var(--accent);
-      box-shadow: 0 0 10px var(--accent);
+      box-shadow: 0 0 8px var(--accent);
       animation: pulseDot 2s infinite;
     }
     @keyframes pulseDot {
@@ -156,140 +144,169 @@
       50% { opacity: 0.5; transform: scale(0.85); }
     }
 
-    /* Links Stack */
-    .links-stack {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
+    /* Bento Grid Layout */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 16px;
+      width: 100%;
     }
 
-    .link-card {
-      position: relative;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 24px;
+    /* Full Width Hero Bento Card */
+    .bento-card.full-width {
+      grid-column: span 2;
+    }
+
+    .bento-card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      color: var(--cream);
-      text-decoration: none;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      overflow: hidden;
-    }
-    .link-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, transparent, rgba(232, 226, 217, 0.04), transparent);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    .link-card:hover {
-      background: var(--bg-card-hover);
-      border-color: rgba(232, 226, 217, 0.28);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
-    }
-    .link-card:hover::before {
-      opacity: 1;
-    }
-
-    /* Primary Featured Card */
-    .link-card.featured {
-      background: linear-gradient(135deg, #2B201D 0%, #1C1514 100%);
-      border-color: var(--accent);
-      box-shadow: 0 10px 30px rgba(194, 142, 104, 0.18);
-    }
-    .link-card.featured:hover {
-      background: linear-gradient(135deg, #352824 0%, #221B19 100%);
-      border-color: #D99E75;
-      box-shadow: 0 14px 36px rgba(194, 142, 104, 0.3);
-    }
-
-    .link-content {
+      border-radius: 20px;
+      padding: 24px;
       display: flex;
-      align-items: center;
-      gap: 16px;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+      text-decoration: none;
+      color: var(--cream-soft);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .bento-card:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(232, 226, 217, 0.25);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65);
     }
 
-    .link-icon-box {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
+    /* Primary Hero Featured Card Style */
+    .bento-card.hero-featured {
+      background: linear-gradient(135deg, #2E221E 0%, #1A1312 100%);
+      border-color: rgba(194, 142, 104, 0.4);
+      padding: 28px;
+      box-shadow: 0 12px 36px rgba(194, 142, 104, 0.15);
+    }
+    .bento-card.hero-featured:hover {
+      background: linear-gradient(135deg, #3A2A26 0%, #201716 100%);
+      border-color: var(--accent);
+      box-shadow: 0 18px 44px rgba(194, 142, 104, 0.28);
+    }
+
+    .card-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    .icon-badge {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
       background: rgba(232, 226, 217, 0.05);
       border: 1px solid var(--border-hairline);
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--tan);
-      flex-shrink: 0;
       transition: all 0.3s ease;
     }
-    .link-card.featured .link-icon-box {
-      background: rgba(194, 142, 104, 0.18);
+    .bento-card.hero-featured .icon-badge {
+      background: rgba(194, 142, 104, 0.2);
       color: var(--accent);
-      border-color: rgba(194, 142, 104, 0.35);
+      border-color: rgba(194, 142, 104, 0.4);
     }
-    .link-card:hover .link-icon-box {
+    .bento-card:hover .icon-badge {
       color: var(--cream);
-      border-color: rgba(232, 226, 217, 0.3);
+      border-color: rgba(232, 226, 217, 0.35);
+      transform: scale(1.05);
     }
 
-    .link-text {
+    .tag-badge {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      padding: 4px 10px;
+      border-radius: 100px;
+      background: rgba(232, 226, 217, 0.06);
+      color: var(--muted);
+      border: 1px solid var(--border-hairline);
+    }
+    .bento-card.hero-featured .tag-badge {
+      background: rgba(194, 142, 104, 0.15);
+      color: var(--accent);
+      border-color: rgba(194, 142, 104, 0.3);
+    }
+
+    .card-body {
       display: flex;
       flex-direction: column;
-      gap: 3px;
-      text-align: left;
+      gap: 6px;
     }
 
-    .link-title {
-      font-size: 16px;
+    .card-title {
+      font-size: 18px;
       font-weight: 600;
       color: var(--cream);
       letter-spacing: 0.01em;
+      line-height: 1.25;
+    }
+    .bento-card.hero-featured .card-title {
+      font-size: 22px;
     }
 
-    .link-subtitle {
+    .card-desc {
       font-size: 13px;
       color: var(--muted);
-      line-height: 1.4;
+      line-height: 1.5;
     }
 
-    .link-arrow {
-      color: var(--muted-dim);
-      transition: transform 0.3s ease, color 0.3s ease;
-      flex-shrink: 0;
+    .card-action-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--tan);
+      margin-top: 4px;
+      transition: color 0.3s ease;
     }
-    .link-card:hover .link-arrow {
-      transform: translateX(4px);
+    .bento-card.hero-featured .card-action-bar {
+      color: var(--accent);
+    }
+    .bento-card:hover .card-action-bar {
       color: var(--cream);
     }
+    .action-arrow {
+      transition: transform 0.3s ease;
+    }
+    .bento-card:hover .action-arrow {
+      transform: translateX(4px);
+    }
 
-    /* Footer */
-    .footer {
-      position: relative;
-      z-index: 10;
+    /* Footer Card */
+    .footer-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 20px 24px;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 16px;
-      margin-top: 36px;
+      justify-content: space-between;
+      width: 100%;
     }
 
     .social-row {
       display: flex;
-      gap: 16px;
+      gap: 12px;
     }
 
     .social-btn {
-      width: 42px;
-      height: 42px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+      background: rgba(232, 226, 217, 0.04);
+      border: 1px solid var(--border-hairline);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -298,7 +315,7 @@
       transition: all 0.3s ease;
     }
     .social-btn:hover {
-      background: var(--bg-card-hover);
+      background: rgba(194, 142, 104, 0.15);
       color: var(--cream);
       border-color: var(--accent);
       transform: translateY(-2px);
@@ -309,6 +326,20 @@
       font-size: 11px;
       color: var(--muted-dim);
       letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 520px) {
+      .bento-grid {
+        grid-template-columns: 1fr;
+      }
+      .bento-card.full-width {
+        grid-column: span 1;
+      }
+      .footer-card {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -325,8 +356,9 @@
   <div class="bg-glow-bottom"></div>
 
   <div class="container">
-    <!-- Header -->
-    <header class="profile-header">
+    
+    <!-- Profile Header Card -->
+    <header class="header-card">
       <div class="logo-wrapper">
         <img src="/assets/logo-ousia-creme-transparente-CbIQyLkH.png" alt="Ousia Studio Logo" class="logo-img" />
       </div>
@@ -337,69 +369,103 @@
       </div>
     </header>
 
-    <!-- Links List -->
-    <main class="links-stack">
-      
-      <!-- Featured CTA: WhatsApp -->
-      <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Vim%20pelo%20link%20da%20bio%20e%20gostaria%20de%20solicitar%20um%20diagn%C3%B3stico%20para%20minha%20marca." target="_blank" rel="noopener" class="link-card featured">
-        <div class="link-content">
-          <div class="link-icon-box">
-            <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 21l1.65-3.8A9 9 0 1121 12a8.96 8.96 0 01-2.4 6L3 21z"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 10a.5.5 0 001 0V9a.5.5 0 00-1 0v1zm0 0a5 5 0 005 5h1a.5.5 0 000-1h-1a4 4 0 01-4-4V10z"/></svg>
+    <!-- Bento Grid Structure -->
+    <main class="bento-grid">
+
+      <!-- Card 1: Featured Hero (WhatsApp Diagnóstico) -->
+      <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Vim%20pelo%20link%20da%20bio%20e%20gostaria%20de%20solicitar%20um%20diagn%C3%B3stico%20para%20minha%20marca." target="_blank" rel="noopener" class="bento-card full-width hero-featured">
+        <div class="card-top-row">
+          <div class="icon-badge">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 21l1.65-3.8A9 9 0 1121 12a8.96 8.96 0 01-2.4 6L3 21z"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 10a.5.5 0 001 0V9a.5.5 0 00-1 0v1zm0 0a5 5 0 005 5h1a.5.5 0 000-1h-1a4 4 0 01-4-4V10z"/></svg>
           </div>
-          <div class="link-text">
-            <span class="link-title">Solicitar Diagnóstico no WhatsApp</span>
-            <span class="link-subtitle">Fale com nossos estrategistas sobre seu branding ou site</span>
-          </div>
+          <span class="tag-badge">CONTATO DIRETO</span>
         </div>
-        <svg class="link-arrow" width="20" height="20" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7l7 7-7 7"/></svg>
+        <div class="card-body">
+          <h2 class="card-title">Solicitar Diagnóstico de Marca & Site</h2>
+          <p class="card-desc">Converse no WhatsApp com nossos estrategistas sobre branding autoral ou desenvolvimento web de alta conversão.</p>
+        </div>
+        <div class="card-action-bar">
+          <span>Iniciar Conversa no WhatsApp</span>
+          <svg class="action-arrow" width="18" height="18" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7l7 7-7 7"/></svg>
+        </div>
       </a>
 
-      <!-- Central de Criativos -->
-      <a href="../criativos/estaticos/modelo-base.html" class="link-card">
-        <div class="link-content">
-          <div class="link-icon-box">
+      <!-- Card 2: Central de Criativos -->
+      <a href="../criativos/estaticos/modelo-base.html" class="bento-card">
+        <div class="card-top-row">
+          <div class="icon-badge">
             <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
           </div>
-          <div class="link-text">
-            <span class="link-title">Central de Conteúdos & Criativos</span>
-            <span class="link-subtitle">Explore a galeria de 12 modelos estáticos de alto valor</span>
-          </div>
+          <span class="tag-badge">12 POSTS</span>
         </div>
-        <svg class="link-arrow" width="20" height="20" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7l7 7-7 7"/></svg>
+        <div class="card-body">
+          <h3 class="card-title">Central de Criativos</h3>
+          <p class="card-desc">Galeria de modelos de posts estáticos de alta percepção.</p>
+        </div>
+        <div class="card-action-bar">
+          <span>Explorar Galeria</span>
+          <svg class="action-arrow" width="16" height="16" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7l7 7-7 7"/></svg>
+        </div>
       </a>
 
-      <!-- Site Oficial -->
-      <a href="../index.html" class="link-card">
-        <div class="link-content">
-          <div class="link-icon-box">
-            <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3.6 9h16.8M3.6 15h16.8M12 3a15.3 15.3 0 014 9 15.3 15.3 0 01-4 9 15.3 15.3 0 01-4-9 15.3 15.3 0 014-9z"/></svg>
+      <!-- Card 3: Site Oficial -->
+      <a href="../index.html" class="bento-card">
+        <div class="card-top-row">
+          <div class="icon-badge">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3.6 9h16.8M3.6 15h16.8M12 3a15.3 15.3 0 014 9 15.3 15.3 0 01-4 9 15.3 15.3 0 014-9z"/></svg>
           </div>
-          <div class="link-text">
-            <span class="link-title">Conhecer o Site Oficial</span>
-            <span class="link-subtitle">Metodologia, portfólio de cases e manifesto Ousia</span>
-          </div>
+          <span class="tag-badge">SITE OFICIAL</span>
         </div>
-        <svg class="link-arrow" width="20" height="20" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7l7 7-7 7"/></svg>
+        <div class="card-body">
+          <h3 class="card-title">Conhecer a Ousia</h3>
+          <p class="card-desc">Metodologia em 4 etapas, manifesto e cases autorais.</p>
+        </div>
+        <div class="card-action-bar">
+          <span>Acessar Site</span>
+          <svg class="action-arrow" width="16" height="16" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7l7 7-7 7"/></svg>
+        </div>
       </a>
 
-      <!-- E-mail Direct -->
-      <a href="mailto:contato@ousiastudio.com.br" class="link-card">
-        <div class="link-content">
-          <div class="link-icon-box">
+      <!-- Card 4: E-mail Corporativo -->
+      <a href="mailto:contato@ousiastudio.com.br" class="bento-card">
+        <div class="card-top-row">
+          <div class="icon-badge">
             <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           </div>
-          <div class="link-text">
-            <span class="link-title">Enviar E-mail Corporativo</span>
-            <span class="link-subtitle">contato@ousiastudio.com.br</span>
-          </div>
+          <span class="tag-badge">E-MAIL</span>
         </div>
-        <svg class="link-arrow" width="20" height="20" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7l7 7-7 7"/></svg>
+        <div class="card-body">
+          <h3 class="card-title">Contato Comercial</h3>
+          <p class="card-desc">contato@ousiastudio.com.br</p>
+        </div>
+        <div class="card-action-bar">
+          <span>Enviar Mensagem</span>
+          <svg class="action-arrow" width="16" height="16" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <!-- Card 5: Reunião Estratégica -->
+      <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20reuni%C3%A3o%20estrat%C3%A9gica." target="_blank" rel="noopener" class="bento-card">
+        <div class="card-top-row">
+          <div class="icon-badge">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/><line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <span class="tag-badge">30 MIN</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Sessão Estratégica</h3>
+          <p class="card-desc">Agende um alinhamento prévio para seu projeto.</p>
+        </div>
+        <div class="card-action-bar">
+          <span>Ver Disponibilidade</span>
+          <svg class="action-arrow" width="16" height="16" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7l7 7-7 7"/></svg>
+        </div>
       </a>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <!-- Footer Card -->
+    <footer class="footer-card">
       <div class="social-row">
         <a href="https://instagram.com/ousiastudio" target="_blank" rel="noopener" class="social-btn" title="Instagram">
           <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke="currentColor" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
@@ -408,8 +474,9 @@
           <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 21l1.65-3.8A9 9 0 1121 12a8.96 8.96 0 01-2.4 6L3 21z"/></svg>
         </a>
       </div>
-      <span class="copyright">© 2026 OUSIA STUDIO • TODOS OS DIREITOS RESERVADOS</span>
+      <span class="copyright">© 2026 OUSIA STUDIO • DIREITOS RESERVADOS</span>
     </footer>
+
   </div>
 </body>
 </html>
