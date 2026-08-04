@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Central de Criativos Estáticos — Ousia Studio Logo &amp; Paleta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #0B0807;
+      color: #E8E2D9;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Topbar */
+    .topbar {
+      height: 64px;
+      background: #1C1514;
+      border-bottom: 1px solid rgba(232, 226, 217, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      z-index: 50;
+    }
+
+    .topbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .topbar-logo-img {
+      height: 24px;
+      width: auto;
+      object-fit: contain;
+    }
+    .topbar-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+    .topbar-subtitle {
+      font-size: 11px;
+      color: #C2B4A3;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-view-toggle {
+      background: #2B2120;
+      border: 1px solid #3B2E2D;
+      color: #E8E2D9;
+      font-family: 'Outfit', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      padding: 7px 18px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.2s;
+    }
+    .btn-view-toggle:hover, .btn-view-toggle.active {
+      background: #E8E2D9;
+      border-color: #E8E2D9;
+      color: #1C1514;
+      font-weight: 700;
+    }
+
+    /* Studio Layout */
+    .studio-container {
+      display: flex;
+      flex: 1;
+      height: calc(100vh - 64px);
+      overflow: hidden;
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      width: 340px;
+      background-color: #120E0C;
+      border-right: 1px solid rgba(232, 226, 217, 0.12);
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .sidebar-section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: #C2B4A3;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      margin-top: 20px;
+    }
+    .sidebar-section-title:first-child {
+      margin-top: 0;
+    }
+
+    .model-selector-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .model-card-btn {
+      background: #1C1514;
+      border: 1px solid #2B2120;
+      border-left: 3px solid transparent;
+      padding: 12px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .model-card-btn:hover {
+      border-color: #3B2E2D;
+      border-left-color: #E8E2D9;
+      transform: translateX(3px);
+      background: #251E1C;
+    }
+    .model-card-btn.active {
+      border-color: #E8E2D9;
+      border-left-color: #E8E2D9;
+      background: #251E1C;
+    }
+
+    .model-btn-num {
+      font-family: 'Outfit', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      color: #C2B4A3;
+      text-transform: uppercase;
+    }
+    .model-btn-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: #F8F5F0;
+    }
+    .model-btn-desc {
+      font-size: 10px;
+      color: #C2B4A3;
+      line-height: 1.4;
+    }
+
+    /* Main Viewport Stage */
+    .viewport-stage {
+      flex: 1;
+      background-color: #0B0807;
+      padding: 30px;
+      overflow: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Grid Mode Container */
+    .grid-view {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      width: 100%;
+      max-width: 1600px;
+    }
+
+    /* Preview Frame Scaler */
+    .preview-frame-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .preview-frame-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: #C2B4A3;
+      text-transform: uppercase;
+    }
+
+    .iframe-scaler {
+      width: 580px;
+      height: 725px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid #3B2E2D;
+      background: #1C1514;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95);
+      flex-shrink: 0;
+    }
+
+    .iframe-scaler iframe {
+      width: 1080px;
+      height: 1350px;
+      border: none;
+      transform: scale(0.537037);
+      transform-origin: top left;
+      display: block;
+    }
+
+    .grid-view .iframe-scaler {
+      width: 320px;
+      height: 400px;
+    }
+
+    .grid-view .iframe-scaler iframe {
+      transform: scale(0.296296);
+    }
+
+    .open-link {
+      font-family: 'Outfit', sans-serif;
+      font-size: 10px;
+      color: #C2B4A3;
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 10px;
+      transition: color 0.2s;
+    }
+    .open-link:hover {
+      color: #F8F5F0;
+    }
+
+    .sidebar-divider {
+      height: 1px;
+      background: rgba(232, 226, 217, 0.1);
+      margin: 8px 0 4px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA SUPERIOR DO STUDIO -->
+  <header class="topbar">
+    <div class="topbar-brand">
+      <img src="/assets/logo-ousia-creme-transparente-CbIQyLkH.png" alt="ousia" class="topbar-logo-img" />
+      <div>
+        <h1 class="topbar-title">Studio de Criativos — Espresso Editorial</h1>
+        <span class="topbar-subtitle">Coleção Limpa: 1 Logo por Post + Design Sem Caixa Alta (12 Conteúdos)</span>
+      </div>
+    </div>
+
+    <div class="topbar-actions">
+      <button class="btn-view-toggle active" id="btnSingle">Individual</button>
+      <button class="btn-view-toggle" id="btnGrid">Grade (Todos)</button>
+      <button class="btn-view-toggle" style="background: #C28E68; border-color: #C28E68; color: #FFFFFF; font-weight: 700;" onclick="downloadActiveModelPng()">Baixar PNG</button>
+    </div>
+  </header>
+
+  <!-- ÁREA DE TRABALHO DO STUDIO -->
+  <div class="studio-container">
+    
+    <!-- PAINEL LATERAL DE SELEÇÃO -->
+    <aside class="sidebar">
+      <div class="sidebar-section-title">✦ Conteúdos para Instagram (12)</div>
+
+      <div class="model-selector-list">
+        <div class="model-card-btn active" onclick="loadModel('conteudos/01-por-que-marca-premium.html', this)">
+          <span class="model-btn-num">Conteúdo 01</span>
+          <span class="model-btn-title">Posicionamento de Marca</span>
+          <span class="model-btn-desc">Editorial com imagem de estúdio e estratégia.</span>
+        </div>
+
+        <div class="model-card-btn" onclick="loadModel('conteudos/02-sinais-marca-fraca.html', this)">
+          <span class="model-btn-num">Conteúdo 02</span>
+          <span class="model-btn-title">5 Sinais de Marca Fraca</span>
+          <span class="model-btn-desc">Diagnóstico — Lista fluida numerada sem caixas.</span>
+        </div>
+
+        <div class="model-card-btn" onclick="loadModel('conteudos/03-design-invisivel.html', this)">
+          <span class="model-btn-num">Conteúdo 03</span>
+          <span class="model-btn-title">Design Invisível</span>
+          <span class="model-btn-desc">Manifesto — Citação minimal com aspas serifadas.</span>
+        </div>
+
+        <div class="model-card-btn" onclick="loadModel('conteudos/04-roi-do-branding.html', this)">
+          <span class="model-btn-num">Conteúdo 04</span>
+          <span class="model-btn-title">ROI do Branding</span>
+          <span class="model-btn-desc">Dados de Mercado — Métricas em destaque elegante.</span>
+        </div>
+
+        <div class="model-card-btn" onclick="loadModel('conteudos/05-pilares-marca-forte.html', this)">
+          <span class="model-btn-num">Conteúdo 05</span>
+          <span class="model-btn-title">3 Pilares da Marca Forte</span>
+          <span class="model-btn-desc">Construção — 3 pilares sequenciais com linha sutil.</span>
+        </div>
+
+        <div class="model-card-btn" onclick="loadModel('conteudos/06-site-que-converte.html', this)">
+          <span class="model-btn-num">Conteúdo 06</span>
+          <span class="model-btn-title">Site Que Converte</span>
+          <span class="model-btn-desc">Presença Digital — Editorial com imagem web/UI.</span>
+        </div>
+
+        <div class="model-card-btn" onclick="loadModel('conteudos/07-estrategia-vs-execucao.html', this)">
+          <span class="model-btn-num">Conteúdo 07</span>
+          <span class="model-btn-title">Estratégia vs Execução</span>
+          <span class="model-btn-desc">Reflexão — Citação forte com subtítulo limpo.</span>
+        </div>
+
+        <div class="model-card-btn" onclick="loadModel('conteudos/08-identidade-visual.html', this)">
+          <span class="model-btn-num">Conteúdo 08</span>
+          <span class="model-btn-title">Identidade Visual Forte</span>
+          <span class="model-btn-desc">Reconhecimento — Editorial com dados inline.</span>
+        </div>
+
+        <div class="model-card-btn" onclick="loadModel('conteudos/09-trafego-vs-marca.html', this)">
+          <span class="model-btn-num">Conteúdo 09</span>
+          <span class="model-btn-title">Tráfego vs Marca</span>
+          <span class="model-btn-desc">Comparativo — Texto direto dividido por linha sutil.</span>
+        </div>
+
+        <div class="model-card-btn" onclick="loadModel('conteudos/10-erros-instagram-amador.html', this)">
+          <span class="model-btn-num">Conteúdo 10</span>
+          <span class="model-btn-title">4 Erros do Instagram Amador</span>
+          <span class="model-btn-desc">Social Media — Lista limpa sem cards de fundo.</span>
+        </div>
+
+        <div class="model-card-btn" onclick="loadModel('conteudos/11-percepcao-de-valor.html', this)">
+          <span class="model-btn-num">Conteúdo 11</span>
+          <span class="model-btn-title">Percepção de Valor</span>
+          <span class="model-btn-desc">Status &amp; Marca — Citação direta sem adereços.</span>
+        </div>
+
+        <div class="model-card-btn" onclick="loadModel('conteudos/12-metodo-ousia.html', this)">
+          <span class="model-btn-num">Conteúdo 12</span>
+          <span class="model-btn-title">Método Ousia</span>
+          <span class="model-btn-desc">Jornada — 4 etapas fluidas sem caixas de texto.</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ÁREA DE PRÉ-VISUALIZAÇÃO DOS POSTS -->
+    <main class="viewport-stage" id="stage">
+      
+      <!-- MODO SINGLE -->
+      <div id="singleView" class="preview-frame-wrapper">
+        <span class="preview-frame-title" id="currentModelTitle">Conteúdo 01 — Posicionamento de Marca</span>
+        <div class="iframe-scaler">
+          <iframe id="mainPreviewFrame" src="conteudos/01-por-que-marca-premium.html"></iframe>
+        </div>
+      </div>
+
+      <!-- MODO GRADE -->
+      <div id="gridView" class="grid-view" style="display: none;">
+        <div class="preview-frame-wrapper">
+          <span class="preview-frame-title">01. Posicionamento de Marca</span>
+          <div class="iframe-scaler"><iframe src="conteudos/01-por-que-marca-premium.html"></iframe></div>
+        </div>
+        <div class="preview-frame-wrapper">
+          <span class="preview-frame-title">02. 5 Sinais Marca Fraca</span>
+          <div class="iframe-scaler"><iframe src="conteudos/02-sinais-marca-fraca.html"></iframe></div>
+        </div>
+        <div class="preview-frame-wrapper">
+          <span class="preview-frame-title">03. Design Invisível</span>
+          <div class="iframe-scaler"><iframe src="conteudos/03-design-invisivel.html"></iframe></div>
+        </div>
+        <div class="preview-frame-wrapper">
+          <span class="preview-frame-title">04. ROI do Branding</span>
+          <div class="iframe-scaler"><iframe src="conteudos/04-roi-do-branding.html"></iframe></div>
+        </div>
+        <div class="preview-frame-wrapper">
+          <span class="preview-frame-title">05. Pilares da Marca</span>
+          <div class="iframe-scaler"><iframe src="conteudos/05-pilares-marca-forte.html"></iframe></div>
+        </div>
+        <div class="preview-frame-wrapper">
+          <span class="preview-frame-title">06. Site Que Converte</span>
+          <div class="iframe-scaler"><iframe src="conteudos/06-site-que-converte.html"></iframe></div>
+        </div>
+        <div class="preview-frame-wrapper">
+          <span class="preview-frame-title">07. Estratégia vs Execução</span>
+          <div class="iframe-scaler"><iframe src="conteudos/07-estrategia-vs-execucao.html"></iframe></div>
+        </div>
+        <div class="preview-frame-wrapper">
+          <span class="preview-frame-title">08. Identidade Visual</span>
+          <div class="iframe-scaler"><iframe src="conteudos/08-identidade-visual.html"></iframe></div>
+        </div>
+        <div class="preview-frame-wrapper">
+          <span class="preview-frame-title">09. Tráfego vs Marca</span>
+          <div class="iframe-scaler"><iframe src="conteudos/09-trafego-vs-marca.html"></iframe></div>
+        </div>
+        <div class="preview-frame-wrapper">
+          <span class="preview-frame-title">10. Erros Instagram</span>
+          <div class="iframe-scaler"><iframe src="conteudos/10-erros-instagram-amador.html"></iframe></div>
+        </div>
+        <div class="preview-frame-wrapper">
+          <span class="preview-frame-title">11. Percepção de Valor</span>
+          <div class="iframe-scaler"><iframe src="conteudos/11-percepcao-de-valor.html"></iframe></div>
+        </div>
+        <div class="preview-frame-wrapper">
+          <span class="preview-frame-title">12. Método Ousia</span>
+          <div class="iframe-scaler"><iframe src="conteudos/12-metodo-ousia.html"></iframe></div>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <script>
+    const btnSingle = document.getElementById('btnSingle');
+    const btnGrid = document.getElementById('btnGrid');
+    const singleView = document.getElementById('singleView');
+    const gridView = document.getElementById('gridView');
+    const mainPreviewFrame = document.getElementById('mainPreviewFrame');
+    const currentModelTitle = document.getElementById('currentModelTitle');
+
+    function loadModel(filepath, btnElement) {
+      mainPreviewFrame.src = filepath;
+      document.querySelectorAll('.model-card-btn').forEach(btn => btn.classList.remove('active'));
+      btnElement.classList.add('active');
+
+      const titleText = btnElement.querySelector('.model-btn-title').innerText;
+      const numText = btnElement.querySelector('.model-btn-num').innerText;
+      currentModelTitle.innerText = `${numText} — ${titleText}`;
+
+      switchToSingleView();
+    }
+
+    function switchToSingleView() {
+      singleView.style.display = 'flex';
+      gridView.style.display = 'none';
+      btnSingle.classList.add('active');
+      btnGrid.classList.remove('active');
+    }
+
+    function switchToGridView() {
+      singleView.style.display = 'none';
+      gridView.style.display = 'grid';
+      btnGrid.classList.add('active');
+      btnSingle.classList.remove('active');
+    }
+
+    btnSingle.addEventListener('click', switchToSingleView);
+    btnGrid.addEventListener('click', switchToGridView);
+
+    function downloadActiveModelPng() {
+      const iframe = document.getElementById('mainPreviewFrame');
+      if (iframe && iframe.contentWindow) {
+        const btn = iframe.contentWindow.document.getElementById('btnDownloadPng');
+        if (btn) {
+          btn.click();
+        } else {
+          alert('Carregando modelo...');
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>
