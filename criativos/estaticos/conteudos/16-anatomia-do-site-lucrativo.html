@@ -27,28 +27,37 @@
 
     .grain-overlay { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 30; opacity: 0.13; mix-blend-mode: overlay; }
     .bg-layer { position: absolute; inset: 0; background: radial-gradient(circle at 10% 90%, rgba(194,142,104,0.08) 0%, transparent 45%), linear-gradient(180deg, var(--bg-card-top) 0%, var(--bg-card) 100%); z-index: 1; }
-    .watermark { position: absolute; bottom: -160px; right: -80px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 700; font-size: 850px; line-height: 1; color: var(--cream-soft); opacity: 0.025; z-index: 1; user-select: none; }
 
     .header-bar { position: relative; z-index: 10; display: flex; justify-content: space-between; align-items: center; padding-bottom: 28px; border-bottom: 1px solid var(--border-hairline); }
     .logo-img { height: 38px; width: auto; object-fit: contain; }
-    .header-tag { font-family: 'Space Mono', monospace; font-size: 13px; color: var(--accent); }
+    .header-tag { font-family: 'Tenor Sans', sans-serif; font-size: 14px; color: var(--accent); }
+
+    /* Hero visual foto web/UI autoral no meio */
+    .hero-box {
+      position: relative; z-index: 10; width: 100%; height: 380px; margin-top: 32px;
+      border: none; overflow: hidden; flex-shrink: 0; box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+      background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1000');
+      background-size: cover; background-position: center center; background-repeat: no-repeat;
+      filter: sepia(0.22) saturate(1.15) contrast(1.14) brightness(0.85) hue-rotate(-6deg);
+    }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,21,20,0.05) 0%, rgba(28,21,20,0.85) 100%); }
 
     /* Layout Dividido em Grade de Colunas */
-    .split-layout { position: relative; z-index: 10; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 36px; align-items: center; }
+    .split-layout { position: relative; z-index: 10; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; margin-top: 32px; align-items: start; }
     
-    .left-col { display: flex; flex-direction: column; gap: 20px; }
+    .left-col { display: flex; flex-direction: column; gap: 16px; }
     .category-label { font-family: 'Tenor Sans', sans-serif; font-size: 17px; color: var(--accent); letter-spacing: 0.04em; }
-    .main-headline { font-family: 'Cormorant Garamond', serif; font-size: 54px; font-weight: 600; line-height: 1.1; color: var(--cream); letter-spacing: -0.01em; }
-    .main-headline .serif-italic { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: 60px; color: var(--tan); }
+    .main-headline { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 600; line-height: 1.1; color: var(--cream); letter-spacing: -0.01em; }
+    .main-headline .serif-italic { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: 58px; color: var(--tan); }
 
-    .right-col { display: flex; flex-direction: column; gap: 24px; padding-left: 24px; border-left: 1px solid var(--border-hairline); }
-    .anatomy-point { display: flex; flex-direction: column; gap: 6px; }
-    .point-number { font-family: 'Space Mono', monospace; font-size: 14px; color: var(--accent); }
-    .point-title { font-family: 'Tenor Sans', sans-serif; font-size: 19px; color: var(--cream); font-weight: 600; }
-    .point-desc { font-family: 'Tenor Sans', sans-serif; font-size: 15px; color: var(--muted); line-height: 1.5; }
+    .right-col { display: flex; flex-direction: column; gap: 20px; padding-left: 28px; border-left: 1px solid var(--border-hairline); }
+    .anatomy-point { display: flex; flex-direction: column; gap: 4px; }
+    .point-number { font-family: 'Space Mono', monospace; font-size: 13px; color: var(--accent); }
+    .point-title { font-family: 'Tenor Sans', sans-serif; font-size: 18px; color: var(--cream); font-weight: 600; }
+    .point-desc { font-family: 'Tenor Sans', sans-serif; font-size: 15px; color: var(--muted); line-height: 1.45; }
 
     /* Subtítulo de 22px (+1px maior) na base */
-    .lead-text-box { position: relative; z-index: 10; padding-top: 32px; border-top: 1px solid var(--border-hairline); margin-top: 36px; }
+    .lead-text-box { position: relative; z-index: 10; margin-top: 24px; }
     .lead-text { font-family: 'Tenor Sans', sans-serif; font-size: 22px; color: var(--muted); line-height: 1.65; font-weight: 400; }
 
     .footer-bar { position: relative; z-index: 10; display: flex; justify-content: flex-end; align-items: center; border-top: 1px solid var(--border-hairline); padding-top: 28px; }
@@ -60,17 +69,20 @@
     <div class="post-canvas" id="exportCanvas">
       <svg class="grain-overlay" width="100%" height="100%"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.13 0"/></filter><rect width="100%" height="100%" filter="url(#noise)"/></svg>
       <div class="bg-layer"></div>
-      <div class="watermark">A</div>
 
       <header class="header-bar">
         <img src="../../assets/logos/logo-ousia-creme-transparente.png" alt="Ousia" class="logo-img" />
-        <span class="header-tag">ESTRUTURA 2026</span>
+        <span class="header-tag">Engenharia Digital</span>
       </header>
 
-      <!-- Layout em Colunas com Título na Esquerda -->
+      <div class="hero-box">
+        <div class="hero-overlay"></div>
+      </div>
+
+      <!-- Layout em Colunas com Título na Esquerda e Tópicos na Direita -->
       <div class="split-layout">
         <div class="left-col">
-          <span class="category-label">Engenharia Web</span>
+          <span class="category-label">Arquitetura Web</span>
           <h1 class="main-headline">
             Anatomia de um site que <span class="serif-italic">vende sem esforço</span>.
           </h1>
@@ -78,19 +90,19 @@
 
         <div class="right-col">
           <div class="anatomy-point">
-            <span class="point-number">01. Carregamento &lt; 1s</span>
+            <span class="point-number">01. Velocidade &lt; 1s</span>
             <h3 class="point-title">Performance Extrema</h3>
-            <p class="point-desc">Laptops e celulares navegam sem travamento.</p>
+            <p class="point-desc">Navegação fluida sem travamentos no celular.</p>
           </div>
           <div class="anatomy-point">
             <span class="point-number">02. Hierarquia Editorial</span>
-            <h3 class="point-title">Clareza Visual</h3>
-            <p class="point-desc">O visitante entende seu valor em 3 segundos.</p>
+            <h3 class="point-title">Clareza de Valor</h3>
+            <p class="point-desc">Percepção instantânea nos primeiros 3 segundos.</p>
           </div>
           <div class="anatomy-point">
-            <span class="point-number">03. CTA Estratégico</span>
-            <h3 class="point-title">Conversão Direta</h3>
-            <p class="point-desc">Jornada fluida até o WhatsApp de vendas.</p>
+            <span class="point-number">03. Conversão Direta</span>
+            <h3 class="point-title">Jornada Fluida</h3>
+            <p class="point-desc">Caminho simples e persuasivo até o WhatsApp.</p>
           </div>
         </div>
       </div>
@@ -98,7 +110,7 @@
       <!-- Subtítulo com 22px (+1px maior) -->
       <div class="lead-text-box">
         <p class="lead-text">
-          Seu site não deve parecer um panfleto digital genérico. Ele deve funcionar como um vendedor sênior silencioso que apresenta sua marca com elegância inquestionável.
+          Seu site não deve parecer um panfleto digital genérico. Ele deve funcionar como um vendedor sênior silencioso que apresenta sua marca com elegância e autoridade.
         </p>
       </div>
 
