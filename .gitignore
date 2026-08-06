@@ -4,3 +4,8 @@ node_modules/
 *.log
 
 .vercel
+
+# Ignorar conteúdos de carrosseis e estáticos
+criativos/carrosseis/
+criativos/estaticos/
+dist/criativos/
