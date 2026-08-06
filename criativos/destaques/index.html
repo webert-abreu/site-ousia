@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Central de Destaques do Instagram — Ousia Studio</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/logos/favicon.png" />
+  <link rel="apple-touch-icon" href="../assets/logos/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #0B0807;
+      color: #E8E2D9;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Topbar */
+    .topbar {
+      height: 64px;
+      background: #1C1514;
+      border-bottom: 1px solid rgba(232, 226, 217, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      z-index: 50;
+    }
+
+    .topbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .topbar-logo-img {
+      height: 24px;
+      width: auto;
+      object-fit: contain;
+    }
+    .topbar-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+    .topbar-subtitle {
+      font-size: 11px;
+      color: #C2B4A3;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-view-toggle {
+      background: #2B2120;
+      border: 1px solid #3B2E2D;
+      color: #E8E2D9;
+      font-family: 'Outfit', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      padding: 7px 18px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.2s;
+    }
+    .btn-view-toggle:hover, .btn-view-toggle.active {
+      background: #E8E2D9;
+      border-color: #E8E2D9;
+      color: #1C1514;
+      font-weight: 700;
+    }
+
+    /* Studio Layout */
+    .studio-container {
+      display: flex;
+      flex: 1;
+      height: calc(100vh - 64px);
+      overflow: hidden;
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      width: 340px;
+      background-color: #120E0C;
+      border-right: 1px solid rgba(232, 226, 217, 0.12);
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .sidebar-section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: #C2B4A3;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .model-selector-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .model-card-btn {
+      background: #1C1514;
+      border: 1px solid #2B2120;
+      border-left: 3px solid transparent;
+      padding: 14px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .model-card-btn:hover {
+      border-color: #3B2E2D;
+      border-left-color: #C28E68;
+      transform: translateX(3px);
+      background: #251E1C;
+    }
+    .model-card-btn.active {
+      border-color: #C28E68;
+      border-left-color: #C28E68;
+      background: #251E1C;
+    }
+
+    .model-btn-num {
+      font-family: 'Outfit', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      color: #C28E68;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .model-btn-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #F8F5F0;
+    }
+    .model-btn-desc {
+      font-size: 11px;
+      color: #C2B4A3;
+      line-height: 1.4;
+    }
+
+    /* Main Viewport Stage */
+    .viewport-stage {
+      flex: 1;
+      background-color: #0B0807;
+      padding: 30px;
+      overflow: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Grid Mode Container */
+    .grid-view {
+      display: flex;
+      gap: 28px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .preview-frame-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .preview-frame-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      color: #E8E2D9;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* Story Frame Scaler (1080x1920 scaled to fit screen) */
+    .iframe-scaler {
+      width: 360px;
+      height: 640px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid #3B2E2D;
+      background: #1C1514;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95);
+      border-radius: 12px;
+      flex-shrink: 0;
+    }
+
+    .iframe-scaler iframe {
+      width: 1080px;
+      height: 1920px;
+      border: none;
+      transform: scale(0.333333);
+      transform-origin: top left;
+      display: block;
+    }
+
+    .grid-view .iframe-scaler {
+      width: 270px;
+      height: 480px;
+    }
+
+    .grid-view .iframe-scaler iframe {
+      transform: scale(0.25);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA SUPERIOR DO STUDIO -->
+  <header class="topbar">
+    <div class="topbar-brand">
+      <img src="../assets/logos/logo-ousia-creme-transparente.png" alt="ousia" class="topbar-logo-img" />
+      <div>
+        <h1 class="topbar-title">Capas de Destaque para Instagram</h1>
+        <span class="topbar-subtitle">Coleção Ousia Studio (Quem Somos • Clientes • Serviços)</span>
+      </div>
+    </div>
+
+    <div class="topbar-actions">
+      <button class="btn-view-toggle active" id="btnSingle">Individual</button>
+      <button class="btn-view-toggle" id="btnGrid">Grade (Todos)</button>
+      <button class="btn-view-toggle" style="background: #C28E68; border-color: #C28E68; color: #FFFFFF; font-weight: 700;" onclick="downloadActiveModelPng()">Baixar PNG</button>
+    </div>
+  </header>
+
+  <!-- ÁREA DE TRABALHO DO STUDIO -->
+  <div class="studio-container">
+    
+    <!-- PAINEL LATERAL DE SELEÇÃO -->
+    <aside class="sidebar">
+      <div class="sidebar-section-title">✦ Capas para Destaques (3)</div>
+
+      <div class="model-selector-list">
+        <div class="model-card-btn active" onclick="loadModel('01-quem-somos.html', this)">
+          <span class="model-btn-num">Destaque 01</span>
+          <span class="model-btn-title">Quem Somos</span>
+          <span class="model-btn-desc">Ícone de identidade minimalista em anel de cobre.</span>
+        </div>
+
+        <div class="model-card-btn" onclick="loadModel('02-clientes.html', this)">
+          <span class="model-btn-num">Destaque 02</span>
+          <span class="model-btn-title">Clientes</span>
+          <span class="model-btn-desc">Estrela de avaliação 5.0 e prova social.</span>
+        </div>
+
+        <div class="model-card-btn" onclick="loadModel('03-servicos.html', this)">
+          <span class="model-btn-num">Destaque 03</span>
+          <span class="model-btn-title">Serviços</span>
+          <span class="model-btn-desc">Geometria de diamante e soluções de marca.</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ÁREA DE PRÉ-VISUALIZAÇÃO -->
+    <main class="viewport-stage" id="stage">
+      
+      <!-- MODO SINGLE -->
+      <div id="singleView" class="preview-frame-wrapper">
+        <span class="preview-frame-title" id="currentModelTitle">Destaque 01 — Quem Somos</span>
+        <div class="iframe-scaler">
+          <iframe id="mainPreviewFrame" src="01-quem-somos.html"></iframe>
+        </div>
+      </div>
+
+      <!-- MODO GRADE -->
+      <div id="gridView" class="grid-view" style="display: none;">
+        <div class="preview-frame-wrapper">
+          <span class="preview-frame-title">01. Quem Somos</span>
+          <div class="iframe-scaler"><iframe src="01-quem-somos.html"></iframe></div>
+        </div>
+        <div class="preview-frame-wrapper">
+          <span class="preview-frame-title">02. Clientes</span>
+          <div class="iframe-scaler"><iframe src="02-clientes.html"></iframe></div>
+        </div>
+        <div class="preview-frame-wrapper">
+          <span class="preview-frame-title">03. Serviços</span>
+          <div class="iframe-scaler"><iframe src="03-servicos.html"></iframe></div>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <script>
+    const btnSingle = document.getElementById('btnSingle');
+    const btnGrid = document.getElementById('btnGrid');
+    const singleView = document.getElementById('singleView');
+    const gridView = document.getElementById('gridView');
+    const mainPreviewFrame = document.getElementById('mainPreviewFrame');
+    const currentModelTitle = document.getElementById('currentModelTitle');
+
+    function loadModel(filepath, btnElement) {
+      mainPreviewFrame.src = filepath;
+      document.querySelectorAll('.model-card-btn').forEach(btn => btn.classList.remove('active'));
+      btnElement.classList.add('active');
+
+      const titleText = btnElement.querySelector('.model-btn-title').innerText;
+      const numText = btnElement.querySelector('.model-btn-num').innerText;
+      currentModelTitle.innerText = `${numText} — ${titleText}`;
+
+      switchToSingleView();
+    }
+
+    function switchToSingleView() {
+      singleView.style.display = 'flex';
+      gridView.style.display = 'none';
+      btnSingle.classList.add('active');
+      btnGrid.classList.remove('active');
+    }
+
+    function switchToGridView() {
+      singleView.style.display = 'none';
+      gridView.style.display = 'flex';
+      btnGrid.classList.add('active');
+      btnSingle.classList.remove('active');
+    }
+
+    btnSingle.addEventListener('click', switchToSingleView);
+    btnGrid.addEventListener('click', switchToGridView);
+
+    function downloadActiveModelPng() {
+      const iframe = document.getElementById('mainPreviewFrame');
+      if (iframe && iframe.contentWindow) {
+        const btn = iframe.contentWindow.document.getElementById('btnDownloadPng');
+        if (btn) {
+          btn.click();
+        } else {
+          alert('Carregando capa...');
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>
