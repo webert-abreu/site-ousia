@@ -9,10 +9,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Instrument+Serif:ital@0;1&family=Tenor+Sans&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-page: #0B0807; --bg-card: #1C1514; --bg-card-top: #221B1A;
-      --border-subtle: #2B2120; --border-hairline: rgba(232, 226, 217, 0.14);
-      --cream: #F8F5F0; --cream-soft: #E8E2D9; --tan: #D9CEC1;
-      --muted: #C2B4A3; --muted-dim: #8A7A6D; --accent: #C28E68;
+      --bg-page: #0B0807; --bg-card: #F4EFEA; --bg-card-top: #FAF7F4;
+      --border-subtle: transparent; --border-hairline: rgba(26, 19, 18, 0.12);
+      --cream: #1A1312; --cream-soft: #2E2320; --tan: #8C5B3E;
+      --muted: #54443F; --muted-dim: #7A6963; --accent: #A66E49;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background-color: var(--bg-page); color: var(--cream-soft); font-family: 'Tenor Sans', sans-serif; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; width: 1080px; height: 1350px; overflow: hidden; }
@@ -21,14 +21,14 @@
       width: 1080px; height: 1350px; flex-shrink: 0; background-color: var(--bg-card);
       position: relative; overflow: hidden; display: flex; flex-direction: column;
       justify-content: space-between; padding: 72px;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.95); border: 1px solid var(--border-subtle);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.35); border: none;
     }
 
     .grain-overlay { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 30; opacity: 0.13; mix-blend-mode: overlay; }
-    .bg-layer { position: absolute; inset: 0; background: radial-gradient(circle at 80% 80%, rgba(194,142,104,0.08) 0%, transparent 55%), linear-gradient(180deg, var(--bg-card-top) 0%, var(--bg-card) 100%); z-index: 1; }
+    .bg-layer { position: absolute; inset: 0; background: radial-gradient(circle at 80% 80%, rgba(194,142,104,0.15) 0%, transparent 60%), linear-gradient(180deg, var(--bg-card-top) 0%, var(--bg-card) 100%); z-index: 1; }
 
     .header-bar { position: relative; z-index: 10; display: flex; justify-content: space-between; align-items: center; padding-bottom: 28px; border-bottom: 1px solid var(--border-hairline); }
-    .logo-img { height: 38px; width: auto; object-fit: contain; }
+    .logo-img { height: 38px; width: auto; object-fit: contain; filter: brightness(0.15); }
     .slide-counter { font-family: 'Tenor Sans', sans-serif; font-size: 15px; color: var(--accent); letter-spacing: 0.08em; font-weight: 600; }
 
     .main-content-wrapper {
@@ -43,12 +43,12 @@
 
     .hero-strip {
       position: relative; z-index: 10; width: 100%; height: 380px;
-      overflow: hidden; flex-shrink: 0; box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+      overflow: hidden; flex-shrink: 0; box-shadow: 0 20px 50px rgba(0,0,0,0.15);
       background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000');
       background-size: cover; background-position: center center; background-repeat: no-repeat;
-      filter: sepia(0.22) saturate(1.15) contrast(1.14) brightness(0.85);
+      filter: sepia(0.18) saturate(1.1) contrast(1.1) brightness(0.95);
     }
-    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,21,20,0.05) 0%, rgba(28,21,20,0.85) 100%); }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(244,239,234,0.05) 0%, rgba(244,239,234,0.85) 100%); }
 
     .footer-bar { position: relative; z-index: 10; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-hairline); padding-top: 28px; }
     .agency-url { font-family: 'Tenor Sans', sans-serif; font-size: 15px; letter-spacing: 0.04em; color: var(--muted-dim); }

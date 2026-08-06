@@ -9,8 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Instrument+Serif:ital@0;1&family=Tenor+Sans&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-page: #0B0807; --bg-card: #1C1514; --bg-card-top: #221B1A;
-      --border-subtle: #2B2120; --border-hairline: rgba(232, 226, 217, 0.14);
+      --bg-page: #0B0807; --bg-card: #140E0C; --bg-card-top: #241A16;
+      --border-subtle: transparent; --border-hairline: rgba(232, 226, 217, 0.16);
       --cream: #F8F5F0; --cream-soft: #E8E2D9; --tan: #D9CEC1;
       --muted: #C2B4A3; --muted-dim: #8A7A6D; --accent: #C28E68;
     }
@@ -21,11 +21,11 @@
       width: 1080px; height: 1350px; flex-shrink: 0; background-color: var(--bg-card);
       position: relative; overflow: hidden; display: flex; flex-direction: column;
       justify-content: space-between; padding: 72px;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.95); border: 1px solid var(--border-subtle);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.95); border: none;
     }
 
     .grain-overlay { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 30; opacity: 0.13; mix-blend-mode: overlay; }
-    .bg-layer { position: absolute; inset: 0; background: radial-gradient(circle at 85% 15%, rgba(194,142,104,0.08) 0%, transparent 55%), linear-gradient(180deg, var(--bg-card-top) 0%, var(--bg-card) 100%); z-index: 1; }
+    .bg-layer { position: absolute; inset: 0; background: radial-gradient(circle at 85% 15%, rgba(194,142,104,0.22) 0%, transparent 60%), linear-gradient(180deg, var(--bg-card-top) 0%, var(--bg-card) 100%); z-index: 1; }
 
     .header-bar { position: relative; z-index: 10; display: flex; justify-content: space-between; align-items: center; padding-bottom: 28px; border-bottom: 1px solid var(--border-hairline); }
     .logo-img { height: 38px; width: auto; object-fit: contain; }
